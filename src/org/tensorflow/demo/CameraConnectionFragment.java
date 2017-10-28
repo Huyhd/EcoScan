@@ -58,7 +58,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-import org.tensorflow.demo.env.Logger;
+
 import org.tensorflow.demo.R; // Explicit import needed for internal Google builds.
 
 public class CameraConnectionFragment extends Fragment {

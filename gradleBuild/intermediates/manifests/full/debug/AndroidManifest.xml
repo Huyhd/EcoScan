@@ -15,11 +15,13 @@
  limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.tensorflow.demo" >
+    package="org.tensorflow.demo"
+    android:versionCode="1"
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="21"
-        android:targetSdkVersion="23" />
+        android:targetSdkVersion="26" />
 
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -32,63 +34,70 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name="org.tensorflow.demo.App"
         android:allowBackup="true"
         android:debuggable="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
+        android:testOnly="true"
         android:theme="@style/MaterialTheme" >
         <activity
             android:name="org.tensorflow.demo.SplashActivity"
-            android:label="EcoScan"
-            android:theme="@style/SplashTheme" >
+            android:label="@string/activity_name_classification"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="org.tensorflow.demo.ClassifierActivity" />
         <!--
-                <activity android:name="org.tensorflow.demo.ClassifierActivity"
-                          android:screenOrientation="portrait"
-                          android:label="@string/activity_name_classification">
-                    <intent-filter>
-                        <action android:name="android.intent.action.MAIN" />
-                        <category android:name="android.intent.category.LAUNCHER" />
-                    </intent-filter>
-                </activity>
+        <activity android:name="org.tensorflow.demo.DetectorActivity"
+                  android:screenOrientation="portrait"
+                  android:label="@string/activity_name_detection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-                <activity android:name="org.tensorflow.demo.DetectorActivity"
-                          android:screenOrientation="portrait"
-                          android:label="@string/activity_name_detection">
-                    <intent-filter>
-                        <action android:name="android.intent.action.MAIN" />
-                        <category android:name="android.intent.category.LAUNCHER" />
-                    </intent-filter>
-                </activity>
+        <activity android:name="org.tensorflow.demo.StylizeActivity"
+                  android:screenOrientation="portrait"
+                  android:label="@string/activity_name_stylize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-                <activity android:name="org.tensorflow.demo.StylizeActivity"
-                          android:screenOrientation="portrait"
-                          android:label="@string/activity_name_stylize">
-                    <intent-filter>
-                        <action android:name="android.intent.action.MAIN" />
-                        <category android:name="android.intent.category.LAUNCHER" />
-                    </intent-filter>
-                </activity>
 
-                <activity android:name="org.tensorflow.demo.SpeechActivity"
-                    android:screenOrientation="portrait"
-                    android:label="@string/activity_name_speech">
-                    <intent-filter>
-                        <action android:name="android.intent.action.MAIN" />
-                        <category android:name="android.intent.category.LAUNCHER" />
-                    </intent-filter>
-                </activity>
+
+        <activity android:name="org.tensorflow.demo.SpeechActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/activity_name_speech">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         -->
+
+        <activity android:name="org.tensorflow.demo.ClassifierActivity" />
+        <activity android:name="org.tensorflow.demo.IteminfoActivity" />
+        <activity android:name="org.tensorflow.demo.SettingActivity" />
         <activity
-            android:name="org.tensorflow.demo.MainActivity"
-            android:label="@string/title_activity_main" />
+            android:name="org.tensorflow.demo.Edititems"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="org.tensorflow.demo.Main3Activity"
+            android:label="eco"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.1.0" />
+        <meta-data
+            android:name="android.arch.lifecycle.VERSION"
+            android:value="27.0.0-SNAPSHOT" />
     </application>
 
 </manifest>

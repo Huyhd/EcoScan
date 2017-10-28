@@ -29,7 +29,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.android.tools.build:gradle:3.0.0'
         classpath 'org.apache.httpcomponents:httpclient:4.5.2'
     }
 }
@@ -76,8 +76,15 @@ project.ext.TMP_DIR = project.buildDir.toString() + '/downloads'
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 26
+    defaultConfig {
+
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
 
     if (nativeBuildSystem == 'cmake') {
         defaultConfig {
@@ -139,8 +146,7 @@ android {
 
 task buildNativeBazel(type: Exec) {
     workingDir '../../..'
-    commandLine bazelLocation, 'build', '-c', 'opt', 'tensorflow/examples/android:tensorflow_native_libs', '--crosstool_top=//external:android/crosstool',  \
-         '--cpu=' + cpuType, '--host_crosstool_top=@bazel_tools//tools/cpp:toolchain'
+    commandLine bazelLocation, 'build', '-c', 'opt', 'tensorflow/examples/android:tensorflow_native_libs', '--crosstool_top=//external:android/crosstool', '--cpu=' + cpuType, '--host_crosstool_top=@bazel_tools//tools/cpp:toolchain'
 }
 
 task buildNativeMake(type: Exec) {
@@ -149,9 +155,9 @@ task buildNativeMake(type: Exec) {
     // builds significantly.
     // environment "CC_PREFIX", 'ccache'
     workingDir '../../..'
-    commandLine 'tensorflow/contrib/makefile/build_all_android.sh',  \
-         '-s', 'tensorflow/contrib/makefile/sub_makefiles/android/Makefile.in',  \
-         '-t', 'libtensorflow_inference.so libtensorflow_demo.so' //, '-T'  // Uncomment to skip protobuf and speed up subsequent builds.
+    commandLine 'tensorflow/contrib/makefile/build_all_android.sh', '-s', 'tensorflow/contrib/makefile/sub_makefiles/android/Makefile.in',  \
+         '-t', 'libtensorflow_inference.so libtensorflow_demo.so'
+    //, '-T'  // Uncomment to skip protobuf and speed up subsequent builds.
 }
 
 
@@ -184,5 +190,14 @@ dependencies {
     if (nativeBuildSystem == 'cmake' || nativeBuildSystem == 'none') {
         compile 'org.tensorflow:tensorflow-android:+'
     }
-
+implementation 'com.android.support:support-v4:26.1.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:design:26.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compile 'me.dm7.barcodescanner:zxing:1.9'
+    compile 'com.getbase:floatingactionbutton:1.7.0'
 }

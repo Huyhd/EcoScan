@@ -32,7 +32,6 @@ import java.util.StringTokenizer;
 import org.tensorflow.Graph;
 import org.tensorflow.Operation;
 import org.tensorflow.contrib.android.TensorFlowInferenceInterface;
-import org.tensorflow.demo.env.Logger;
 
 /**
  * A detector for general purpose object detection as described in Scalable Object Detection using

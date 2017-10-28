@@ -35,15 +35,16 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Trace;
+import android.support.annotation.RequiresApi;
 import android.util.Size;
 import android.view.KeyEvent;
 import android.view.WindowManager;
 import android.widget.Toast;
 import java.nio.ByteBuffer;
-import org.tensorflow.demo.env.ImageUtils;
-import org.tensorflow.demo.env.Logger;
+
 import org.tensorflow.demo.R; // Explicit import needed for internal Google builds.
 
+@RequiresApi(api = Build.VERSION_CODES.KITKAT)
 public abstract class CameraActivity extends Activity
     implements OnImageAvailableListener, Camera.PreviewCallback {
   private static final Logger LOGGER = new Logger();
@@ -69,6 +70,7 @@ public abstract class CameraActivity extends Activity
   private Runnable postInferenceCallback;
   private Runnable imageConverter;
 
+  @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
     LOGGER.d("onCreate " + this);
@@ -102,6 +104,7 @@ public abstract class CameraActivity extends Activity
   /**
    * Callback for android.hardware.Camera API
    */
+  @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
   @Override
   public void onPreviewFrame(final byte[] bytes, final Camera camera) {
     if (isProcessingFrame) {
@@ -268,6 +271,7 @@ public abstract class CameraActivity extends Activity
     }
   }
 
+  @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
   @Override
   public void onRequestPermissionsResult(
       final int requestCode, final String[] permissions, final int[] grantResults) {
@@ -303,6 +307,7 @@ public abstract class CameraActivity extends Activity
   }
 
   // Returns true if the device supports the required hardware level, or better.
+  @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
   private boolean isHardwareLevelSupported(
       CameraCharacteristics characteristics, int requiredLevel) {
     int deviceLevel = characteristics.get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL);
@@ -313,6 +318,7 @@ public abstract class CameraActivity extends Activity
     return requiredLevel <= deviceLevel;
   }
 
+  @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
   private String chooseCamera() {
     final CameraManager manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
     try {
@@ -344,6 +350,7 @@ public abstract class CameraActivity extends Activity
     return null;
   }
 
+  @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
   protected void setFragment() {
     String cameraId = chooseCamera();
 

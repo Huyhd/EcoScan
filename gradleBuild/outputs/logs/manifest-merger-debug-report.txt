@@ -1,84 +1,241 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:16:1-93:12
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:16:1-91:12
+INJECTED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:16:1-91:12
+INJECTED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:16:1-91:12
+MERGED from [org.tensorflow:tensorflow-android:1.4.0-rc1] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.4.0-rc1.aar\de59bc52c429164ece1639c6a3603878\AndroidManifest.xml:2:1-8:12
+MERGED from [me.dm7.barcodescanner:zxing:1.9] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\zxing-1.9.aar\a7ea2320302d67a4c83d5bc3cfee4c5a\AndroidManifest.xml:2:1-13:12
+MERGED from [com.getbase:floatingactionbutton:1.7.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\floatingactionbutton-1.7.0.aar\33679580a3cb6618e6d5d027157d20f7\AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support:design:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\dc13f3aea3ee07732d1c402e25d60976\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\bed065445893a0091f9d6cddaff1e19a\AndroidManifest.xml:17:1-31:12
+MERGED from [me.dm7.barcodescanner:core:1.9] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\core-1.9.aar\997ea0c90cd3940c9635056e2c8dc7a7\AndroidManifest.xml:2:1-13:12
+MERGED from [com.android.support:transition:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\ee23c32b51d2756c600bda50a2c77200\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\caa674ec70786e2c98095e9253882a92\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\b670ee44803b4765c40650ecea4875cc\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\e3fde17871c28e7553740b84c61776c9\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\1cb4ed160d8c81f4537951908f7acd6b\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\731de3c441f728a28b378508aa33804a\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\7f6705a9f713b7d724d1845daa4455a9\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\ddb7bc6357e14bfd297ec2ec4c4328e7\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\2e98edd614e7d471f89ade87f0920b0c\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\0c16470e9f47c40ea19c727a601aed60\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\4f45934e6131036bc83d484d914d5a36\AndroidManifest.xml:17:1-31:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\a1281bf913ce5a2228c687183132455b\AndroidManifest.xml:17:1-30:12
+INJECTED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:16:1-91:12
+INJECTED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:16:1-91:12
 	package
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:17:5-34
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:17:5-34
+	android:versionName
+		INJECTED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:16:1-91:12
+		INJECTED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:16:1-91:12
+		INJECTED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:16:11-69
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:16:11-69
 uses-sdk
-ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:19:5-21:41
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:19:5-21:41
+INJECTED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:19:5-21:41
+INJECTED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:19:5-21:41
+MERGED from [me.dm7.barcodescanner:zxing:1.9] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\zxing-1.9.aar\a7ea2320302d67a4c83d5bc3cfee4c5a\AndroidManifest.xml:7:5-9:41
+MERGED from [me.dm7.barcodescanner:zxing:1.9] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\zxing-1.9.aar\a7ea2320302d67a4c83d5bc3cfee4c5a\AndroidManifest.xml:7:5-9:41
+MERGED from [com.getbase:floatingactionbutton:1.7.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\floatingactionbutton-1.7.0.aar\33679580a3cb6618e6d5d027157d20f7\AndroidManifest.xml:8:5-10:41
+MERGED from [com.getbase:floatingactionbutton:1.7.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\floatingactionbutton-1.7.0.aar\33679580a3cb6618e6d5d027157d20f7\AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:design:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\dc13f3aea3ee07732d1c402e25d60976\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:design:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\dc13f3aea3ee07732d1c402e25d60976\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\bed065445893a0091f9d6cddaff1e19a\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\bed065445893a0091f9d6cddaff1e19a\AndroidManifest.xml:21:5-23:78
+MERGED from [me.dm7.barcodescanner:core:1.9] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\core-1.9.aar\997ea0c90cd3940c9635056e2c8dc7a7\AndroidManifest.xml:7:5-9:41
+MERGED from [me.dm7.barcodescanner:core:1.9] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\core-1.9.aar\997ea0c90cd3940c9635056e2c8dc7a7\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:transition:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\ee23c32b51d2756c600bda50a2c77200\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\ee23c32b51d2756c600bda50a2c77200\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\caa674ec70786e2c98095e9253882a92\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\caa674ec70786e2c98095e9253882a92\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\b670ee44803b4765c40650ecea4875cc\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\b670ee44803b4765c40650ecea4875cc\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\e3fde17871c28e7553740b84c61776c9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\e3fde17871c28e7553740b84c61776c9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\1cb4ed160d8c81f4537951908f7acd6b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\1cb4ed160d8c81f4537951908f7acd6b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\731de3c441f728a28b378508aa33804a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\731de3c441f728a28b378508aa33804a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\7f6705a9f713b7d724d1845daa4455a9\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\7f6705a9f713b7d724d1845daa4455a9\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\ddb7bc6357e14bfd297ec2ec4c4328e7\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\ddb7bc6357e14bfd297ec2ec4c4328e7\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\2e98edd614e7d471f89ade87f0920b0c\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\2e98edd614e7d471f89ade87f0920b0c\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\0c16470e9f47c40ea19c727a601aed60\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\0c16470e9f47c40ea19c727a601aed60\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\4f45934e6131036bc83d484d914d5a36\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\4f45934e6131036bc83d484d914d5a36\AndroidManifest.xml:21:5-23:58
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\a1281bf913ce5a2228c687183132455b\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\a1281bf913ce5a2228c687183132455b\AndroidManifest.xml:20:5-22:41
+INJECTED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:19:5-21:41
+INJECTED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:19:5-21:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\dc13f3aea3ee07732d1c402e25d60976\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:21:9-38
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:21:9-38
+		INJECTED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
+		INJECTED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
 	android:minSdkVersion
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:20:9-35
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:20:9-35
+		INJECTED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
+		INJECTED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
 uses-permission#android.permission.CAMERA
-ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:23:5-65
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:23:5-65
 	android:name
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:23:22-62
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:23:22-62
 uses-feature#android.hardware.camera
-ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:25:5-60
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:25:5-60
 	android:name
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:25:19-57
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:25:19-57
 uses-feature#android.hardware.camera.autofocus
-ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:26:5-70
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:26:5-70
 	android:name
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:26:19-67
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:26:19-67
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:28:5-81
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:28:5-81
 	android:name
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:28:22-78
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:28:22-78
 uses-permission#android.permission.RECORD_AUDIO
-ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:29:5-71
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:29:5-71
 	android:name
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:29:22-68
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:29:22-68
 uses-permission#android.permission.READ_PHONE_STATE
-ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:30:5-75
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:30:5-75
 	android:name
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:30:22-72
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:30:22-72
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:31:5-80
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:31:5-80
 	android:name
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:31:22-77
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:31:22-77
 application
-ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:33:5-91:19
-MERGED from [org.tensorflow:tensorflow-android:1.4.0-rc1] C:\Users\DELL\.android\build-cache\452311bc0f7aca30cab21f9649601e480bddc564\output\AndroidManifest.xml:5:5-6:19
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:33:5-89:19
+MERGED from [org.tensorflow:tensorflow-android:1.4.0-rc1] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.4.0-rc1.aar\de59bc52c429164ece1639c6a3603878\AndroidManifest.xml:5:5-6:19
+MERGED from [org.tensorflow:tensorflow-android:1.4.0-rc1] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.4.0-rc1.aar\de59bc52c429164ece1639c6a3603878\AndroidManifest.xml:5:5-6:19
+MERGED from [me.dm7.barcodescanner:zxing:1.9] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\zxing-1.9.aar\a7ea2320302d67a4c83d5bc3cfee4c5a\AndroidManifest.xml:11:5-20
+MERGED from [me.dm7.barcodescanner:zxing:1.9] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\zxing-1.9.aar\a7ea2320302d67a4c83d5bc3cfee4c5a\AndroidManifest.xml:11:5-20
+MERGED from [com.getbase:floatingactionbutton:1.7.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\floatingactionbutton-1.7.0.aar\33679580a3cb6618e6d5d027157d20f7\AndroidManifest.xml:12:5-20
+MERGED from [com.getbase:floatingactionbutton:1.7.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\floatingactionbutton-1.7.0.aar\33679580a3cb6618e6d5d027157d20f7\AndroidManifest.xml:12:5-20
+MERGED from [com.android.support:design:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\dc13f3aea3ee07732d1c402e25d60976\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:design:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\dc13f3aea3ee07732d1c402e25d60976\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\bed065445893a0091f9d6cddaff1e19a\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\bed065445893a0091f9d6cddaff1e19a\AndroidManifest.xml:25:5-29:19
+MERGED from [me.dm7.barcodescanner:core:1.9] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\core-1.9.aar\997ea0c90cd3940c9635056e2c8dc7a7\AndroidManifest.xml:11:5-20
+MERGED from [me.dm7.barcodescanner:core:1.9] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\core-1.9.aar\997ea0c90cd3940c9635056e2c8dc7a7\AndroidManifest.xml:11:5-20
+MERGED from [com.android.support:transition:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\ee23c32b51d2756c600bda50a2c77200\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:transition:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\ee23c32b51d2756c600bda50a2c77200\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\caa674ec70786e2c98095e9253882a92\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\caa674ec70786e2c98095e9253882a92\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\b670ee44803b4765c40650ecea4875cc\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\b670ee44803b4765c40650ecea4875cc\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\e3fde17871c28e7553740b84c61776c9\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\e3fde17871c28e7553740b84c61776c9\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\1cb4ed160d8c81f4537951908f7acd6b\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\1cb4ed160d8c81f4537951908f7acd6b\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\731de3c441f728a28b378508aa33804a\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\731de3c441f728a28b378508aa33804a\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\7f6705a9f713b7d724d1845daa4455a9\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\7f6705a9f713b7d724d1845daa4455a9\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\ddb7bc6357e14bfd297ec2ec4c4328e7\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\ddb7bc6357e14bfd297ec2ec4c4328e7\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\2e98edd614e7d471f89ade87f0920b0c\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\2e98edd614e7d471f89ade87f0920b0c\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\0c16470e9f47c40ea19c727a601aed60\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\0c16470e9f47c40ea19c727a601aed60\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\4f45934e6131036bc83d484d914d5a36\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\4f45934e6131036bc83d484d914d5a36\AndroidManifest.xml:25:5-29:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\a1281bf913ce5a2228c687183132455b\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\a1281bf913ce5a2228c687183132455b\AndroidManifest.xml:24:5-28:19
 	android:label
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:38:9-41
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:37:9-41
 	android:debuggable
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:36:9-34
-	android:allowBackup
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:35:9-35
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:35:9-34
 	android:icon
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:37:9-43
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:36:9-49
+	android:allowBackup
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:34:9-35
 	android:theme
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:39:9-45
-	android:name
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:34:9-28
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:38:9-45
 activity#org.tensorflow.demo.SplashActivity
-ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:40:9-49:20
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:39:9-48:20
+	android:screenOrientation
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:42:13-49
 	android:label
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:42:13-36
-	android:theme
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:43:13-47
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:41:13-65
 	android:name
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:41:13-43
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:40:13-43
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:44:13-48:29
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:43:13-47:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:45:17-69
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:44:17-69
 	android:name
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:45:25-66
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:44:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:47:17-77
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:46:17-77
 	android:name
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:47:27-74
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:46:27-74
 activity#org.tensorflow.demo.ClassifierActivity
-ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:50:9-56
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:80:9-56
 	android:name
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:50:19-53
-activity#org.tensorflow.demo.MainActivity
-ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:88:9-90:68
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:80:19-53
+activity#org.tensorflow.demo.IteminfoActivity
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:81:9-54
+	android:name
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:81:19-51
+activity#org.tensorflow.demo.SettingActivity
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:82:9-53
+	android:name
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:82:19-50
+activity#org.tensorflow.demo.Edititems
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:83:9-84:65
+	android:theme
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:84:13-63
+	android:name
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:83:19-44
+activity#org.tensorflow.demo.Main3Activity
+ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:85:9-88:66
 	android:label
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:90:13-56
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:87:13-32
+	android:theme
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:88:13-63
 	android:name
-		ADDED from C:\Users\DELL\Downloads\Compressed\EcoScan - Copy - Copy\tensorflow\examples\android\AndroidManifest.xml:89:13-41
+		ADDED from C:\Users\Kimsoomin\Desktop\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:86:13-42
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\dc13f3aea3ee07732d1c402e25d60976\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\bed065445893a0091f9d6cddaff1e19a\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\bed065445893a0091f9d6cddaff1e19a\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:transition:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\ee23c32b51d2756c600bda50a2c77200\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:transition:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\ee23c32b51d2756c600bda50a2c77200\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\caa674ec70786e2c98095e9253882a92\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\caa674ec70786e2c98095e9253882a92\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\e3fde17871c28e7553740b84c61776c9\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\e3fde17871c28e7553740b84c61776c9\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\1cb4ed160d8c81f4537951908f7acd6b\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\1cb4ed160d8c81f4537951908f7acd6b\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\731de3c441f728a28b378508aa33804a\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\731de3c441f728a28b378508aa33804a\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\7f6705a9f713b7d724d1845daa4455a9\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\7f6705a9f713b7d724d1845daa4455a9\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\ddb7bc6357e14bfd297ec2ec4c4328e7\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\ddb7bc6357e14bfd297ec2ec4c4328e7\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\2e98edd614e7d471f89ade87f0920b0c\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\2e98edd614e7d471f89ade87f0920b0c\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\0c16470e9f47c40ea19c727a601aed60\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\0c16470e9f47c40ea19c727a601aed60\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\4f45934e6131036bc83d484d914d5a36\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\4f45934e6131036bc83d484d914d5a36\AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:design:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\dc13f3aea3ee07732d1c402e25d60976\AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:design:26.1.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\dc13f3aea3ee07732d1c402e25d60976\AndroidManifest.xml:27:13-51
+meta-data#android.arch.lifecycle.VERSION
+ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\a1281bf913ce5a2228c687183132455b\AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\a1281bf913ce5a2228c687183132455b\AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Kimsoomin\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\a1281bf913ce5a2228c687183132455b\AndroidManifest.xml:26:13-58

@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package org.tensorflow.demo;
+        package org.tensorflow.demo;
 
-import android.content.Context;
+        import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
@@ -24,32 +25,24 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.media.ImageReader.OnImageAvailableListener;
-import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Size;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
+import org.tensorflow.demo.OverlayView.DrawCallback;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
-import org.tensorflow.demo.OverlayView.DrawCallback;
-import org.tensorflow.demo.env.BorderedText;
-import org.tensorflow.demo.env.ImageUtils;
-import org.tensorflow.demo.env.Logger;
-import org.tensorflow.demo.R; // Explicit import needed for internal Google builds.
 
 public class ClassifierActivity extends CameraActivity implements OnImageAvailableListener {
   private static final Logger LOGGER = new Logger();
@@ -90,7 +83,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
   private static final String MODEL_FILE = "file:///android_asset/tensorflow_inception_graph.pb";
   private static final String LABEL_FILE =
-      "file:///android_asset/imagenet_comp_graph_label_strings.txt";
+          "file:///android_asset/imagenet_comp_graph_label_strings.txt";
 
 
   private static final boolean MAINTAIN_ASPECT = true;
@@ -126,20 +119,22 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
   @Override
   public void onPreviewSizeChosen(final Size size, final int rotation) {
     final float textSizePx = TypedValue.applyDimension(
-        TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP, getResources().getDisplayMetrics());
+            TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP, getResources().getDisplayMetrics());
     borderedText = new BorderedText(textSizePx);
     borderedText.setTypeface(Typeface.MONOSPACE);
 
-    final ImageButton imagebutton3 = (ImageButton) findViewById(R.id.imageButton3);
+    final ImageButton imagebutton3 = (ImageButton) findViewById(R.id.addtolist);
     imagebutton3.setOnClickListener(new View.OnClickListener() {
       public void onClick(View v) {
 
-       // Toast.makeText(ClassifierActivity.this , results.get(0).getTitle() + "date:" + DateFormat.getDateTimeInstance().format(new Date()),
+        // Toast.makeText(ClassifierActivity.this , results.get(0).getTitle() + "date:" + DateFormat.getDateTimeInstance().format(new Date()),
 //                Toast.LENGTH_SHORT).show();
         try {
           if (results != null&&!results.isEmpty()) {
-            String string = results.get(0).getTitle() + "," + DateFormat.getDateTimeInstance().format(new Date()) + "\n";
+            String string = results.get(0).getTitle() + "," + DateFormat.getDateInstance().format(new Date()) + "\n";
             myList.add(string);
+              Toast.makeText(ClassifierActivity.this ,"Added",
+                      Toast.LENGTH_SHORT).show();
           }
         }
         catch (Exception e)
@@ -150,7 +145,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
         // Code here executes on main thread after user presses button
       }
     });
-    final ImageButton imagebutton4 = (ImageButton) findViewById(R.id.imageButton4);
+    final ImageButton imagebutton4 = (ImageButton) findViewById(R.id.savelist);
     imagebutton4.setOnClickListener(new View.OnClickListener() {
       public void onClick(View v) {
         String FILENAME = "Saveobjects";
@@ -164,13 +159,15 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
             fos.flush();
           }
           fos.close();
+
         } catch (FileNotFoundException e) {
           e.printStackTrace();
         } catch (IOException e) {
           e.printStackTrace();
         }
-
-
+          Intent Gotomain = new Intent(ClassifierActivity.this, Edititems.class);
+          startActivity(Gotomain);
+/*
         FileInputStream fis = null;
         try {
           fis = openFileInput(FILENAME);
@@ -189,21 +186,21 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                   Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
           e.printStackTrace();
-        }
+        }*/
         // Code here executes on main thread after user presses button
       }
     });
 
     classifier =
-        TensorFlowImageClassifier.create(
-            getAssets(),
-            MODEL_FILE,
-            LABEL_FILE,
-            INPUT_SIZE,
-            IMAGE_MEAN,
-            IMAGE_STD,
-            INPUT_NAME,
-            OUTPUT_NAME);
+            TensorFlowImageClassifier.create(
+                    getAssets(),
+                    MODEL_FILE,
+                    LABEL_FILE,
+                    INPUT_SIZE,
+                    IMAGE_MEAN,
+                    IMAGE_STD,
+                    INPUT_NAME,
+                    OUTPUT_NAME);
 
     previewWidth = size.getWidth();
     previewHeight = size.getHeight();
@@ -220,20 +217,20 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
     croppedBitmap = Bitmap.createBitmap(INPUT_SIZE, INPUT_SIZE, Config.ARGB_8888);
 
     frameToCropTransform = ImageUtils.getTransformationMatrix(
-        previewWidth, previewHeight,
-        INPUT_SIZE, INPUT_SIZE,
-        sensorOrientation, MAINTAIN_ASPECT);
+            previewWidth, previewHeight,
+            INPUT_SIZE, INPUT_SIZE,
+            sensorOrientation, MAINTAIN_ASPECT);
 
     cropToFrameTransform = new Matrix();
     frameToCropTransform.invert(cropToFrameTransform);
 
     addCallback(
-        new DrawCallback() {
-          @Override
-          public void drawCallback(final Canvas canvas) {
-            renderDebug(canvas);
-          }
-        });
+            new DrawCallback() {
+              @Override
+              public void drawCallback(final Canvas canvas) {
+                renderDebug(canvas);
+              }
+            });
   }
 
   @Override
@@ -247,23 +244,23 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
       ImageUtils.saveBitmap(croppedBitmap);
     }
     runInBackground(
-        new Runnable() {
-          @Override
-          public void run() {
-            final long startTime = SystemClock.uptimeMillis();
-            results = classifier.recognizeImage(croppedBitmap);
-            lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
-            LOGGER.i("Detect: %s", results);
-            cropCopyBitmap = Bitmap.createBitmap(croppedBitmap);
-            if (resultsView == null) {
-              resultsView = (ResultsView) findViewById(R.id.results);
-            }
+            new Runnable() {
+              @Override
+              public void run() {
+                final long startTime = SystemClock.uptimeMillis();
+                results = classifier.recognizeImage(croppedBitmap);
+                lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
+                LOGGER.i("Detect: %s", results);
+                cropCopyBitmap = Bitmap.createBitmap(croppedBitmap);
+                if (resultsView == null) {
+                  resultsView = (ResultsView) findViewById(R.id.results);
+                }
 
-            resultsView.setResults(results);
-            requestRender();
-            readyForNextImage();
-          }
-        });
+                resultsView.setResults(results);
+                requestRender();
+                readyForNextImage();
+              }
+            });
   }
 
 
@@ -283,8 +280,8 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
       final float scaleFactor = 2;
       matrix.postScale(scaleFactor, scaleFactor);
       matrix.postTranslate(
-          canvas.getWidth() - copy.getWidth() * scaleFactor,
-          canvas.getHeight() - copy.getHeight() * scaleFactor);
+              canvas.getWidth() - copy.getWidth() * scaleFactor,
+              canvas.getHeight() - copy.getHeight() * scaleFactor);
       canvas.drawBitmap(copy, matrix, new Paint());
 
       final Vector<String> lines = new Vector<String>();
