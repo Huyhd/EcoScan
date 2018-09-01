@@ -480,10 +480,6 @@
         "source": "/home/huy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/9aa25f3eb819970b0790154067633f06/res/drawable-xhdpi-v4/abc_ic_star_black_36dp.png"
     },
     {
-        "merged": "/home/huy/AndroidStudioProjects/EcoScan/gradleBuild/intermediates/res/merged/release/layout_activity_speech.xml.flat",
-        "source": "/home/huy/AndroidStudioProjects/EcoScan/res/layout/activity_speech.xml"
-    },
-    {
         "merged": "/home/huy/AndroidStudioProjects/EcoScan/gradleBuild/intermediates/res/merged/release/drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
         "source": "/home/huy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/9aa25f3eb819970b0790154067633f06/res/drawable-xxxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
     },
@@ -1476,12 +1472,12 @@
         "source": "/home/huy/AndroidStudioProjects/EcoScan/res/drawable/ic_settings_black_24dp.xml"
     },
     {
-        "merged": "/home/huy/AndroidStudioProjects/EcoScan/gradleBuild/intermediates/res/merged/release/drawable-hdpi_tile.9.png.flat",
-        "source": "/home/huy/AndroidStudioProjects/EcoScan/res/drawable-hdpi/tile.9.png"
-    },
-    {
         "merged": "/home/huy/AndroidStudioProjects/EcoScan/gradleBuild/intermediates/res/merged/release/color_abc_tint_btn_checkable.xml.flat",
         "source": "/home/huy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/9aa25f3eb819970b0790154067633f06/res/color/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/home/huy/AndroidStudioProjects/EcoScan/gradleBuild/intermediates/res/merged/release/drawable-hdpi_tile.9.png.flat",
+        "source": "/home/huy/AndroidStudioProjects/EcoScan/res/drawable-hdpi/tile.9.png"
     },
     {
         "merged": "/home/huy/AndroidStudioProjects/EcoScan/gradleBuild/intermediates/res/merged/release/drawable_abc_tab_indicator_material.xml.flat",

@@ -45,10 +45,10 @@ public final class R {
         public static final int fab_expand_menu_button = 0x7f080050;
         public static final int fab_label = 0x7f080051;
         public static final int left = 0x7f080065;
-        public static final int mini = 0x7f080070;
-        public static final int normal = 0x7f080079;
-        public static final int right = 0x7f080089;
-        public static final int up = 0x7f0800cf;
+        public static final int mini = 0x7f08006f;
+        public static final int normal = 0x7f080078;
+        public static final int right = 0x7f080087;
+        public static final int up = 0x7f0800cd;
     }
     public static final class styleable {
         public static final int[] AddFloatingActionButton = { 0x7f030095 };
