@@ -37,7 +37,6 @@
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
-        android:testOnly="true"
         android:theme="@style/MaterialTheme" >
         <activity
             android:name="org.tensorflow.demo.SplashActivity"
