@@ -88,7 +88,7 @@ android {
 
     if (nativeBuildSystem == 'cmake') {
         defaultConfig {
-            applicationId = 'org.tensorflow.demo'
+            applicationId = 'app.creatingminds.EcoScan'
             minSdkVersion 21
             targetSdkVersion 23
             ndk {
@@ -188,7 +188,7 @@ apply from: "download-models.gradle"
 
 dependencies {
     if (nativeBuildSystem == 'cmake' || nativeBuildSystem == 'none') {
-        compile 'org.tensorflow:tensorflow-android:+'
+        implementation 'org.tensorflow:tensorflow-android:+'
     }
     implementation 'com.android.support:support-v4:26.1.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])

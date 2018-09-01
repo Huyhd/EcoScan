@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/home/huy/AndroidStudioProjects/EcoScan/libs"/></dataSet><dataSet config="release"><source path="/home/huy/AndroidStudioProjects/EcoScan/build-types/release/jniLibs"/></dataSet></merger>

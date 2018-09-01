@@ -1,0 +1,4 @@
+#Sat Sep 01 14:48:41 KST 2018
+base.0=/home/huy/AndroidStudioProjects/EcoScan/gradleBuild/intermediates/transforms/dexMerger/release/0
+path.0=classes.dex
+renamed.0=classes.dex
