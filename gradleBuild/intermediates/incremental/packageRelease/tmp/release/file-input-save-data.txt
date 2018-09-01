@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Sep 01 14:48:43 KST 2018
+#Sat Sep 01 14:52:50 KST 2018
 5.base=/home/huy/AndroidStudioProjects/EcoScan/gradleBuild/intermediates/transforms/mergeJniLibs/release/0
 22.path=thumbnails/style5.jpg
 32.set=ASSET

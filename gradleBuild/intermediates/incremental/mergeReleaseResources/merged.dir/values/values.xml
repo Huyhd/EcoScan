@@ -796,7 +796,7 @@
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
-    <string name="activity_name_classification">TF Classify</string>
+    <string name="activity_name_classification">EcoScan</string>
     <string name="activity_name_detection">TF Detect</string>
     <string name="activity_name_speech">TF Speech</string>
     <string name="activity_name_stylize">TF Stylize</string>
