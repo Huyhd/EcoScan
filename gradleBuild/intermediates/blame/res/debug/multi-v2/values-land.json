@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Kimsoomin\\Desktop\\tensorflow-master\\tensorflow-master\\tensorflow\\examples\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "/home/huy/AndroidStudioProjects/EcoScan/gradleBuild/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Kimsoomin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\bed065445893a0091f9d6cddaff1e19a\\res\\values-land\\values-land.xml",
+                    "source": "/home/huy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/9aa25f3eb819970b0790154067633f06/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Kimsoomin\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\dc13f3aea3ee07732d1c402e25d60976\\res\\values-land\\values-land.xml",
+                    "source": "/home/huy/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/0b3ea635cf9817813f2657991281ce2b/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

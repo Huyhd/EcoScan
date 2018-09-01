@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Kimsoomin\\Desktop\\tensorflow-master\\tensorflow-master\\tensorflow\\examples\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
+            "outputFile": "/home/huy/AndroidStudioProjects/EcoScan/gradleBuild/intermediates/incremental/mergeDebugResources/merged.dir/values-w820dp-v13/values-w820dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Kimsoomin\\Desktop\\tensorflow-master\\tensorflow-master\\tensorflow\\examples\\android\\res\\values-w820dp\\dimens.xml",
+                    "source": "/home/huy/AndroidStudioProjects/EcoScan/res/values-w820dp/dimens.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "4",

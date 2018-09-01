@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Kimsoomin\\Desktop\\tensorflow-master\\tensorflow-master\\tensorflow\\examples\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-et\\values-et.xml",
+            "outputFile": "/home/huy/AndroidStudioProjects/EcoScan/gradleBuild/intermediates/incremental/mergeDebugResources/merged.dir/values-et/values-et.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Kimsoomin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\bed065445893a0091f9d6cddaff1e19a\\res\\values-et\\values-et.xml",
+                    "source": "/home/huy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/9aa25f3eb819970b0790154067633f06/res/values-et/values-et.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

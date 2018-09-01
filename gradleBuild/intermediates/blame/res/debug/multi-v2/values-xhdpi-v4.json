@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Kimsoomin\\Desktop\\tensorflow-master\\tensorflow-master\\tensorflow\\examples\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xhdpi-v4\\values-xhdpi-v4.xml",
+            "outputFile": "/home/huy/AndroidStudioProjects/EcoScan/gradleBuild/intermediates/incremental/mergeDebugResources/merged.dir/values-xhdpi-v4/values-xhdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Kimsoomin\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.9.aar\\997ea0c90cd3940c9635056e2c8dc7a7\\res\\values-xhdpi-v4\\values-xhdpi-v4.xml",
+                    "source": "/home/huy/.gradle/caches/transforms-1/files-1.1/core-1.9.aar/451cc43b4e99004ad02f5c2665d1c227/res/values-xhdpi-v4/values-xhdpi-v4.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
