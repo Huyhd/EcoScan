@@ -128,6 +128,5 @@ public class Main3Activity extends AppCompatActivity
     public void AddbuttonClicked(View view){
         Intent opencamera = new Intent(this, ClassifierActivity.class);
         startActivity(opencamera);
-        finish();
     }
 }
