@@ -133,14 +133,14 @@ android {
             }
             // Android demo app sources.
             java {
-                srcDir 'src'
+                srcDir 'app/src/main'
             }
 
-            manifest.srcFile 'AndroidManifest.xml'
-            resources.srcDirs = ['src']
-            aidl.srcDirs = ['src']
-            renderscript.srcDirs = ['src']
-            res.srcDirs = ['res']
+            manifest.srcFile 'app/src/main/AndroidManifest.xml'
+            resources.srcDirs = ['app/src/main']
+            aidl.srcDirs = ['app/src/main']
+            renderscript.srcDirs = ['app/src/main']
+            res.srcDirs = ['app/src/main/res']
             assets.srcDirs = [project.ext.ASSET_DIR]
             jniLibs.srcDirs = ['libs']
         }
