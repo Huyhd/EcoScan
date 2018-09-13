@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-        package org.tensorflow.demo;
+package org.tensorflow.demo;
 
 import android.content.Context;
 import android.content.Intent;
@@ -30,7 +30,6 @@ import android.util.Size;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import org.tensorflow.demo.OverlayView.DrawCallback;
@@ -47,20 +46,9 @@ import java.util.Vector;
 import app.creatingminds.ecoscan.EditItemActivity;
 import app.creatingminds.ecoscan.R;
 
-public class ClassifierActivity extends CameraActivity implements OnImageAvailableListener {
+public class ClassifierActivity extends CameraActivity implements OnImageAvailableListener, View.OnClickListener {
+    protected static final boolean SAVE_PREVIEW_BITMAP = false;
   private static final Logger LOGGER = new Logger();
-
-  protected static final boolean SAVE_PREVIEW_BITMAP = false;
-
-  private ResultsView resultsView;
-  List<String> myList = new ArrayList<String>();
-
-  private Bitmap rgbFrameBitmap = null;
-  private Bitmap croppedBitmap = null;
-  private Bitmap cropCopyBitmap = null;
-
-  private long lastProcessingTimeMs;
-
   // These are the settings for the original v1 Inception model. If you want to
   // use a model that's been produced from the TensorFlow for Poets codelab,
   // you'll need to set IMAGE_SIZE = 299, IMAGE_MEAN = 128, IMAGE_STD = 128,
@@ -82,30 +70,29 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
   private static final float IMAGE_STD = 1;
   private static final String INPUT_NAME = "input";
   private static final String OUTPUT_NAME = "output";
-
-
   private static final String MODEL_FILE = "file:///android_asset/tensorflow_inception_graph.pb";
   private static final String LABEL_FILE =
           "file:///android_asset/imagenet_comp_graph_label_strings.txt";
-
-
   private static final boolean MAINTAIN_ASPECT = true;
-
   private static final Size DESIRED_PREVIEW_SIZE = new Size(640, 480);
-
-
+    private static final float TEXT_SIZE_DIP = 10;
+    List<String> myList = new ArrayList<String>();
+    private ResultsView resultsView;
+    private Bitmap rgbFrameBitmap = null;
+    private Bitmap croppedBitmap = null;
+    private Bitmap cropCopyBitmap = null;
+    private long lastProcessingTimeMs;
   private Integer sensorOrientation;
   private Classifier classifier;
   private Matrix frameToCropTransform;
   private Matrix cropToFrameTransform;
-
   private List<Classifier.Recognition> results;
-  private BorderedText borderedText;
   /*@Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.camera_connection_fragment);
   }*/
+  private BorderedText borderedText;
 
   @Override
   protected int getLayoutId() {
@@ -117,8 +104,6 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
     return DESIRED_PREVIEW_SIZE;
   }
 
-  private static final float TEXT_SIZE_DIP = 10;
-
   @Override
   public void onPreviewSizeChosen(final Size size, final int rotation) {
     final float textSizePx = TypedValue.applyDimension(
@@ -126,73 +111,8 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
     borderedText = new BorderedText(textSizePx);
     borderedText.setTypeface(Typeface.MONOSPACE);
 
-    final ImageButton imagebutton3 = (ImageButton) findViewById(R.id.addtolist);
-    imagebutton3.setOnClickListener(new View.OnClickListener() {
-      public void onClick(View v) {
-
-        // Toast.makeText(ClassifierActivity.this , results.get(0).getTitle() + "date:" + DateFormat.getDateTimeInstance().format(new Date()),
-//                Toast.LENGTH_SHORT).show();
-        try {
-          if (results != null&&!results.isEmpty()) {
-            String string = results.get(0).getTitle() + "," + DateFormat.getDateInstance().format(new Date()) + "\n";
-            myList.add(string);
-              Toast.makeText(ClassifierActivity.this ,"Added",
-                      Toast.LENGTH_SHORT).show();
-          }
-        }
-        catch (Exception e)
-        {
-
-        }
-
-        // Code here executes on main thread after user presses button
-      }
-    });
-    final ImageButton imagebutton4 = (ImageButton) findViewById(R.id.savelist);
-    imagebutton4.setOnClickListener(new View.OnClickListener() {
-      public void onClick(View v) {
-        String FILENAME = "Saveobjects";
-        FileOutputStream fos = null;
-
-
-        try {
-          fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-          for (int i=0;i<myList.size();i++) {
-            fos.write(myList.get(i).getBytes());
-            fos.flush();
-          }
-          fos.close();
-
-        } catch (FileNotFoundException e) {
-          e.printStackTrace();
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-          Intent Gotomain = new Intent(ClassifierActivity.this, EditItemActivity.class);
-          startActivity(Gotomain);
-/*
-        FileInputStream fis = null;
-        try {
-          fis = openFileInput(FILENAME);
-        } catch (FileNotFoundException e) {
-          e.printStackTrace();
-        }
-        InputStreamReader isr = new InputStreamReader(fis);
-        BufferedReader bufferedReader = new BufferedReader(isr);
-        StringBuilder sb = new StringBuilder();
-        String line;
-        try {
-          while ((line = bufferedReader.readLine()) != null) {
-            sb.append(line);
-          }
-          Toast.makeText(ClassifierActivity.this ,sb.substring(0),
-                  Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-          e.printStackTrace();
-        }*/
-        // Code here executes on main thread after user presses button
-      }
-    });
+      findViewById(R.id.btn_add_to_list).setOnClickListener(this);
+      findViewById(R.id.btn_save_list).setOnClickListener(this);
 
     classifier =
             TensorFlowImageClassifier.create(
@@ -267,7 +187,6 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
   }
 
 
-
   @Override
   public void onSetDebug(boolean debug) {
     classifier.enableStatLogging(debug);
@@ -305,4 +224,47 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
       borderedText.drawLines(canvas, 10, canvas.getHeight() - 10, lines);
     }
   }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_save_list:
+                String FILENAME = "Saveobjects";
+                FileOutputStream fos = null;
+
+
+                try {
+                    fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+                    for (int i = 0; i < myList.size(); i++) {
+                        fos.write(myList.get(i).getBytes());
+                        fos.flush();
+                    }
+                    fos.close();
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Intent intent = new Intent(ClassifierActivity.this, EditItemActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.btn_add_to_list:
+                try {
+                    if (results != null && !results.isEmpty()) {
+                        String string = results.get(0).getTitle() + "," + DateFormat.getDateInstance().format(new Date()) + "\n";
+                        myList.add(string);
+                        Toast.makeText(ClassifierActivity.this, "Added",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            default:
+                break;
+        }
+    }
 }
