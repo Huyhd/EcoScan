@@ -24,8 +24,8 @@ getProject().setBuildDir('gradleBuild')
 
 buildscript {
     repositories {
-        jcenter()
         google()
+        jcenter()
     }
 
     dependencies {
@@ -36,8 +36,8 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
         google()
+        jcenter()
     }
 }
 
@@ -133,13 +133,13 @@ android {
             }
             // Android demo app sources.
             java {
-                srcDir 'app/src/main'
+                srcDir 'app/src/main/java'
             }
 
             manifest.srcFile 'app/src/main/AndroidManifest.xml'
-            resources.srcDirs = ['app/src/main']
-            aidl.srcDirs = ['app/src/main']
-            renderscript.srcDirs = ['app/src/main']
+            resources.srcDirs = ['app/src/main/java']
+            aidl.srcDirs = ['app/src/main/java']
+            renderscript.srcDirs = ['app/src/main/java']
             res.srcDirs = ['app/src/main/res']
             assets.srcDirs = [project.ext.ASSET_DIR]
             jniLibs.srcDirs = ['libs']
@@ -206,4 +206,7 @@ dependencies {
     //androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'me.dm7.barcodescanner:zxing:1.9'
     implementation 'com.getbase:floatingactionbutton:1.7.0'
+    implementation "android.arch.persistence.room:runtime:1.1.1"
+
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
 }
