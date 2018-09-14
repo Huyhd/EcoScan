@@ -1,4 +1,4 @@
-package app.creatingminds.ecoscan;
+package app.creatingminds.ecoscan.ui.main;
 
 /**
  * Created by Kimsoomin on 2017-10-28.

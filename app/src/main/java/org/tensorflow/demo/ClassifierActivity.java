@@ -43,8 +43,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
-import app.creatingminds.ecoscan.EditItemActivity;
 import app.creatingminds.ecoscan.R;
+import app.creatingminds.ecoscan.ui.edititem.EditItemActivity;
 
 public class ClassifierActivity extends CameraActivity implements OnImageAvailableListener, View.OnClickListener {
     protected static final boolean SAVE_PREVIEW_BITMAP = false;

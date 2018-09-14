@@ -1,8 +1,10 @@
-package app.creatingminds.ecoscan;
+package app.creatingminds.ecoscan.ui.settings;
 
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+
+import app.creatingminds.ecoscan.R;
 
 public class SettingActivity extends PreferenceActivity implements Preference.OnPreferenceClickListener {
 
