@@ -1,10 +1,12 @@
-package app.creatingminds.ecoscan;
+package app.creatingminds.ecoscan.ui.iteminfo;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import app.creatingminds.ecoscan.R;
 
 public class IteminfoActivity extends AppCompatActivity {
 

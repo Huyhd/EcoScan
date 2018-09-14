@@ -1,4 +1,4 @@
-package app.creatingminds.ecoscan;
+package app.creatingminds.ecoscan.ui.main;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -17,6 +17,9 @@ import android.widget.ListView;
 
 import org.tensorflow.demo.ClassifierActivity;
 
+import app.creatingminds.ecoscan.R;
+import app.creatingminds.ecoscan.ui.iteminfo.IteminfoActivity;
+import app.creatingminds.ecoscan.ui.settings.SettingActivity;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class MainActivity extends AppCompatActivity

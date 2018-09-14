@@ -1,9 +1,12 @@
-package app.creatingminds.ecoscan;
+package app.creatingminds.ecoscan.ui.splash;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import app.creatingminds.ecoscan.R;
+import app.creatingminds.ecoscan.ui.main.MainActivity;
 
 public class SplashActivity extends Activity {
 

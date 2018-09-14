@@ -1,4 +1,4 @@
-package app.creatingminds.ecoscan;
+package app.creatingminds.ecoscan.ui.edititem;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+import app.creatingminds.ecoscan.R;
+import app.creatingminds.ecoscan.ui.main.MainActivity;
 
 /**
  * Created by Kimsoomin on 2017-10-29.

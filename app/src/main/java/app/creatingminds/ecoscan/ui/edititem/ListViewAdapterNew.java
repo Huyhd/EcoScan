@@ -1,4 +1,4 @@
-package app.creatingminds.ecoscan;
+package app.creatingminds.ecoscan.ui.edititem;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import app.creatingminds.ecoscan.R;
 
 /**
  * Created by Kimsoomin on 2017-10-29.

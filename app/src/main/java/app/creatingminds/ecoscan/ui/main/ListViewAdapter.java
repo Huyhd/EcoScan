@@ -1,4 +1,4 @@
-package app.creatingminds.ecoscan;
+package app.creatingminds.ecoscan.ui.main;
 
 /**
  * Created by Kimsoomin on 2017-10-28.
@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import app.creatingminds.ecoscan.R;
 
 public class ListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
