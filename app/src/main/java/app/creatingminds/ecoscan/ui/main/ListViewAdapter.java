@@ -98,6 +98,11 @@ public class ListViewAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    public void updateFood(int i, Food food) {
+        listViewItemList.set(i, new FoodInfoItem(UiUtils.getRandomFoodIcon(), food.getName(), FormatUtils.formatDate(food.getExpireTimestamp())));
+        notifyDataSetChanged();
+    }
+
     public void removeItem(int i) {
         listViewItemList.remove(i);
         notifyDataSetChanged();

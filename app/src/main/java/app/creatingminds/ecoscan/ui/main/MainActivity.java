@@ -1,13 +1,12 @@
 package app.creatingminds.ecoscan.ui.main;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,11 +15,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.DatePicker;
 import android.widget.ListView;
 
 import org.tensorflow.demo.ClassifierActivity;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import app.creatingminds.ecoscan.EcoApp;
@@ -81,13 +82,37 @@ public class MainActivity extends AppCompatActivity
 
         lvFood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView parent, View v, int position, long id) {
-                // get item
-                FoodInfoItem item = (FoodInfoItem) parent.getItemAtPosition(position);
+            public void onItemClick(AdapterView parent, View v, final int position, long id) {
+                final Food food = foodList.get(position);
 
-                String titleStr = item.getTitle() ;
-                String descStr = item.getDesc() ;
-                Drawable iconDrawable = ContextCompat.getDrawable(MainActivity.this, item.getIcon());
+                final Calendar c = Calendar.getInstance();
+                c.setTimeInMillis(food.getExpireTimestamp());
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this,
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                                c.set(Calendar.YEAR, year);
+                                c.set(Calendar.MONTH, monthOfYear);
+                                c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                                food.setExpireTimestamp(c.getTimeInMillis());
+
+                                foodList.set(position, food);
+                                adapter.updateFood(position, food);
+
+                                // TODO: Optimize
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        dataManager.getDatabase().foodDao().updateAll(food);
+                                        dataManager.setCachedFoodList(foodList);
+                                    }
+                                }).start();
+                            }
+                        }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
+                datePickerDialog.show();
             }
         });
 
