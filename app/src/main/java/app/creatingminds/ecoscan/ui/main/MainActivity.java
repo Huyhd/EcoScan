@@ -1,5 +1,7 @@
 package app.creatingminds.ecoscan.ui.main;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -67,6 +69,16 @@ public class MainActivity extends AppCompatActivity
             adapter.setFood(foodList);
         }
 
+        //Menu
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
         lvFood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
@@ -77,17 +89,45 @@ public class MainActivity extends AppCompatActivity
                 String descStr = item.getDesc() ;
                 Drawable iconDrawable = ContextCompat.getDrawable(MainActivity.this, item.getIcon());
             }
-        }) ;
+        });
 
-        //Menu
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+        lvFood.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int pos, long l) {
+                AlertDialog.Builder builder =
+                        new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_Material_Dialog_Alert)
+                                .setTitle("Delete food")
+                                .setMessage("Are you sure to delete this food?")
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        adapter.removeItem(pos);
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+                                        // TODO: Optimize
+                                        new Thread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                // Update data
+                                                Food food = foodList.get(pos);
+                                                dataManager.getDatabase().foodDao().delete(food);
+                                                foodList.remove(pos);
+                                            }
+                                        }).start();
+                                    }
+                                })
+                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+
+                builder.create().show();
+
+                return false; // Dispatch event to next layer
+            }
+        });
     }
 
     @Override
