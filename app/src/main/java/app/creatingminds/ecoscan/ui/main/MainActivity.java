@@ -22,6 +22,7 @@ import java.util.List;
 
 import app.creatingminds.ecoscan.EcoApp;
 import app.creatingminds.ecoscan.R;
+import app.creatingminds.ecoscan.data.DataManager;
 import app.creatingminds.ecoscan.data.model.Food;
 import app.creatingminds.ecoscan.ui.iteminfo.IteminfoActivity;
 import app.creatingminds.ecoscan.ui.settings.SettingActivity;
@@ -31,53 +32,44 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ZXingScannerView scannerView;
+    private ListView lvFood;
+
     private List<Food> foodList = new ArrayList<>();
+    private DataManager dataManager;
+    private ListViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        final ListView listview ;
-        final ListViewAdapter adapter;
+        dataManager = EcoApp.getDataManager();
 
         // Adapter 생성
         adapter = new ListViewAdapter() ;
 
         // 리스트뷰 참조 및 Adapter달기
-        final ListView lv = (ListView)findViewById(R.id.Foodlist);
-        lv.setAdapter(adapter);
+        lvFood = findViewById(R.id.Foodlist);
+        lvFood.setAdapter(adapter);
 
-        // TODO: Optimize
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                foodList = EcoApp.getDataManager().getDatabase().foodDao().getAll();
+        foodList = dataManager.getCachedFoodList();
+        if (foodList == null || foodList.isEmpty()) {
+            // Load default data if empty
 
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (foodList == null || foodList.isEmpty()) {
-                            // Load default data if empty
+            // 첫 번째 아이템 추가.
+            adapter.addItem(ContextCompat.getDrawable(MainActivity.this, R.drawable.tengerine),
+                    "Orange", "2017/11/10");
+            // 두 번째 아이템 추가.
+            adapter.addItem(ContextCompat.getDrawable(MainActivity.this, R.drawable.banana),
+                    "Banana", "2017/10/28");
+            // 세 번째 아이템 추가.
+            adapter.addItem(ContextCompat.getDrawable(MainActivity.this, R.drawable.hotsix),
+                    "Hotsix", "2018/07/18");
+        } else {
+            adapter.setFood(foodList);
+        }
 
-                            // 첫 번째 아이템 추가.
-                            adapter.addItem(ContextCompat.getDrawable(MainActivity.this, R.drawable.tengerine),
-                                    "Orange", "2017/11/10");
-                            // 두 번째 아이템 추가.
-                            adapter.addItem(ContextCompat.getDrawable(MainActivity.this, R.drawable.banana),
-                                    "Banana", "2017/10/28");
-                            // 세 번째 아이템 추가.
-                            adapter.addItem(ContextCompat.getDrawable(MainActivity.this, R.drawable.hotsix),
-                                    "Hotsix", "2018/07/18");
-                        } else {
-                            adapter.setFood(foodList);
-                        }
-                    }
-                });
-            }
-        }).start();
-
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lvFood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 // get item
@@ -91,19 +83,19 @@ public class MainActivity extends AppCompatActivity
 
         //Menu
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -150,7 +142,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(info);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
