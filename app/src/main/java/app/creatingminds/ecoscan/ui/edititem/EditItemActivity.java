@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import app.creatingminds.ecoscan.EcoApp;
@@ -52,6 +53,9 @@ public class EditItemActivity extends AppCompatActivity {
             public void run() {
                 Food[] food = buildFoodList(foodList);
                 EcoApp.getDataManager().getDatabase().foodDao().insertAll(food);
+                List<Food> foodList = new ArrayList<>(Arrays.asList(food));
+                foodList.addAll(EcoApp.getDataManager().getCachedFoodList());
+                EcoApp.getDataManager().setCachedFoodList(foodList);
 
                 runOnUiThread(new Runnable() {
                     @Override
