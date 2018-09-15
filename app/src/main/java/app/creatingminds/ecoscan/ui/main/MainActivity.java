@@ -3,6 +3,7 @@ package app.creatingminds.ecoscan.ui.main;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity
         adapter = new ListViewAdapter() ;
 
         // 리스트뷰 참조 및 Adapter달기
-        lvFood = findViewById(R.id.Foodlist);
+        lvFood = findViewById(R.id.lv_food);
         lvFood.setAdapter(adapter);
 
         foodList = dataManager.getCachedFoodList();
@@ -79,7 +80,6 @@ public class MainActivity extends AppCompatActivity
         }) ;
 
         //Menu
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void AddbuttonClicked(View view){
+    public void onAddBtnClicked(View view) {
         Intent opencamera = new Intent(this, ClassifierActivity.class);
         startActivity(opencamera);
     }
