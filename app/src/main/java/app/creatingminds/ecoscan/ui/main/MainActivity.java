@@ -57,14 +57,11 @@ public class MainActivity extends AppCompatActivity
             // Load default data if empty
 
             // 첫 번째 아이템 추가.
-            adapter.addItem(ContextCompat.getDrawable(MainActivity.this, R.drawable.tengerine),
-                    "Orange", "2017/11/10");
+            adapter.addItem(R.drawable.tengerine, "Orange", "2017/11/10");
             // 두 번째 아이템 추가.
-            adapter.addItem(ContextCompat.getDrawable(MainActivity.this, R.drawable.banana),
-                    "Banana", "2017/10/28");
+            adapter.addItem(R.drawable.banana, "Banana", "2017/10/28");
             // 세 번째 아이템 추가.
-            adapter.addItem(ContextCompat.getDrawable(MainActivity.this, R.drawable.hotsix),
-                    "Hotsix", "2018/07/18");
+            adapter.addItem(R.drawable.hotsix, "Hotsix", "2018/07/18");
         } else {
             adapter.setFood(foodList);
         }
@@ -77,7 +74,7 @@ public class MainActivity extends AppCompatActivity
 
                 String titleStr = item.getTitle() ;
                 String descStr = item.getDesc() ;
-                Drawable iconDrawable = item.getIcon() ;
+                Drawable iconDrawable = ContextCompat.getDrawable(MainActivity.this, item.getIcon());
             }
         }) ;
 

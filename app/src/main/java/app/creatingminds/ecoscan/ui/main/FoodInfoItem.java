@@ -4,21 +4,23 @@ package app.creatingminds.ecoscan.ui.main;
  * Created by Kimsoomin on 2017-10-28.
  */
 
-import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
 
 public class FoodInfoItem {
-    private Drawable iconDrawable ;
+    private @DrawableRes
+    int iconDrawable;
     private String titleStr ;
     private String descStr ;
 
-    public FoodInfoItem(Drawable icon, String title, String desc) {
+    public FoodInfoItem(int icon, String title, String desc) {
         this.iconDrawable = icon;
         this.titleStr = title;
         this.descStr = desc;
     }
 
-    public void setIcon(Drawable icon) {
-        iconDrawable = icon ;
+    public @DrawableRes
+    int getIcon() {
+        return this.iconDrawable;
     }
     public void setTitle(String title) {
         titleStr = title ;
@@ -27,8 +29,8 @@ public class FoodInfoItem {
         descStr = desc ;
     }
 
-    public Drawable getIcon() {
-        return this.iconDrawable ;
+    public void setIcon(@DrawableRes int icon) {
+        iconDrawable = icon;
     }
     public String getTitle() {
         return this.titleStr ;

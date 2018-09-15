@@ -3,8 +3,10 @@ package app.creatingminds.ecoscan.ui.main;
 /**
  * Created by Kimsoomin on 2017-10-28.
  */
+
 import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import java.util.List;
 import app.creatingminds.ecoscan.R;
 import app.creatingminds.ecoscan.data.model.Food;
 import app.creatingminds.ecoscan.utils.FormatUtils;
+import app.creatingminds.ecoscan.utils.UiUtils;
 
 // TODO: Improve performance, add ViewHolder pattern
 public class ListViewAdapter extends BaseAdapter {
@@ -56,9 +59,7 @@ public class ListViewAdapter extends BaseAdapter {
         FoodInfoItem foodInfoItem = listViewItemList.get(position);
 
         // 아이템 내 각 위젯에 데이터 반영
-        Drawable icon = foodInfoItem.getIcon();
-        if (icon != null)
-            iconImageView.setImageDrawable(icon);
+        iconImageView.setImageDrawable(ContextCompat.getDrawable(context, foodInfoItem.getIcon()));
         titleTextView.setText(foodInfoItem.getTitle());
         descTextView.setText(String.format("Expiration date : %s", foodInfoItem.getDesc()));
 
@@ -78,7 +79,7 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    public void addItem(Drawable icon, String title, String desc) {
+    public void addItem(@DrawableRes int icon, String title, String desc) {
         FoodInfoItem item = new FoodInfoItem(icon, title, desc);
         addItem(item);
     }
@@ -92,7 +93,7 @@ public class ListViewAdapter extends BaseAdapter {
         listViewItemList = new ArrayList<>();
         for (int i = 0; i < foodList.size(); i++) {
             Food food = foodList.get(i);
-            listViewItemList.add(new FoodInfoItem(null, food.getName(), FormatUtils.formatDate(food.getExpireTimestamp())));
+            listViewItemList.add(new FoodInfoItem(UiUtils.getRandomFoodIcon(), food.getName(), FormatUtils.formatDate(food.getExpireTimestamp())));
         }
 
         notifyDataSetChanged();
