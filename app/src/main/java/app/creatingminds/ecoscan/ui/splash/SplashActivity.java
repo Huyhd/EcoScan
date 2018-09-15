@@ -7,6 +7,7 @@ import android.os.Handler;
 
 import app.creatingminds.ecoscan.R;
 import app.creatingminds.ecoscan.ui.main.MainActivity;
+import app.creatingminds.ecoscan.utils.Const;
 
 public class SplashActivity extends Activity {
 
@@ -24,6 +25,6 @@ public class SplashActivity extends Activity {
                 startActivity(splash);
                 finish();
             }
-        }, 2000);
+        }, Const.DEFAULT_SPLASH_DELAY);
     }
 }

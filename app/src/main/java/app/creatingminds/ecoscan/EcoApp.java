@@ -3,11 +3,10 @@ package app.creatingminds.ecoscan;
 import android.app.Application;
 import android.arch.persistence.room.Room;
 
-import java.app.creatingminds.ecoscan.utils.Const;
-
 import app.creatingminds.ecoscan.data.AppDataManager;
 import app.creatingminds.ecoscan.data.DataManager;
 import app.creatingminds.ecoscan.data.local.AppDatabase;
+import app.creatingminds.ecoscan.utils.Const;
 
 /**
  * Created by tom on 9/14/18.
