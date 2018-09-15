@@ -6,14 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListView;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
+import app.creatingminds.ecoscan.EcoApp;
 import app.creatingminds.ecoscan.R;
+import app.creatingminds.ecoscan.data.model.Food;
 import app.creatingminds.ecoscan.ui.main.MainActivity;
+import app.creatingminds.ecoscan.utils.FormatUtils;
 
 /**
  * Created by Kimsoomin on 2017-10-29.
@@ -21,88 +21,58 @@ import app.creatingminds.ecoscan.ui.main.MainActivity;
 
 public class EditItemActivity extends AppCompatActivity {
 
+    public static final String EXTRA_KEY_LIST_FOOD = "extra_key_list_food";
+
+    private List<FoodItem> foodList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_newitemslist);
 
-   final ListView listview;
-        final ListViewAdapterNew adapter;
+        final FoodItemAdapter adapter;
 
         // Adapter 생성
-        adapter = new ListViewAdapterNew();
+        adapter = new FoodItemAdapter();
 
         // 리스트뷰 참조 및 Adapter달기
         final ListView newlv = (ListView) findViewById(R.id.NewFood);
         newlv.setAdapter(adapter);
 
-        FileInputStream fis = null;
-        try {
-            fis = openFileInput("Saveobjects");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        InputStreamReader isr = new InputStreamReader(fis);
-        BufferedReader bufferedReader = new BufferedReader(isr);
-        //StringBuilder sb = new StringBuilder();
-        String line;
-        try {
-            while ((line = bufferedReader.readLine()) != null) {
-          //      sb.append(line);
-                adapter.addItem(line.split(",")[0], "Expiration date : "+line.split(",")[1]);
-            }
+        foodList = getIntent().getParcelableArrayListExtra(EXTRA_KEY_LIST_FOOD);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-       /* newlv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView parent, View v, int position, long id) {
-                switch (v.getId()) {
-                    case R.id.btn_alert:
-                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                                context);
-
-                        // 제목셋팅
-                        alertDialogBuilder.setTitle("Delete Item");
-
-                        // AlertDialog 셋팅
-                        alertDialogBuilder
-                                .setMessage("Delte This Item?")
-                                .setCancelable(false)
-                                .setPositiveButton("Yes",
-                                        new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int id) {
-                                                //delete
-                                            }
-                                        })
-                                .setNegativeButton("No",
-                                        new DialogInterface.OnClickListener() {
-                                            public void onClick(
-                                                    DialogInterface dialog, int id) {
-                                                // 다이얼로그를 취소한다
-                                                dialog.cancel();
-                                            }
-                                        });
-
-                        // 다이얼로그 생성
-                        AlertDialog alertDialog = alertDialogBuilder.create();
-
-                        // 다이얼로그 보여주기
-                        alertDialog.show();
-                        break;
-
-                    default:
-                        break;
-                }
-            }
-        });*/
+        adapter.setFoodList(foodList);
     }
 
-    public void BacktoMain(View view){
-        Intent additems = new Intent(EditItemActivity.this, MainActivity.class);
-        startActivity(additems);
-        finish();
+    public void onDoneClick(View view) {
+        // Write to db
+        // TODO: Optimize
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Food[] food = buildFoodList(foodList);
+                EcoApp.getDataManager().getDatabase().foodDao().insertAll(food);
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(EditItemActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+            }
+        }).start();
+    }
+
+    private Food[] buildFoodList(List<FoodItem> foodList) {
+        Food[] food = new Food[foodList.size()];
+
+        for (int i = 0; i < foodList.size(); i++) {
+            FoodItem item = foodList.get(i);
+            food[i] = new Food(item.getTitle(), FormatUtils.convertDateToTimestamp(item.getTime()));
+        }
+
+        return food;
     }
 }

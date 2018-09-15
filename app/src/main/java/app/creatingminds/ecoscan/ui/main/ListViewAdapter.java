@@ -13,12 +13,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import app.creatingminds.ecoscan.R;
+import app.creatingminds.ecoscan.data.model.Food;
+import app.creatingminds.ecoscan.utils.FormatUtils;
 
+// TODO: Improve performance, add ViewHolder pattern
 public class ListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
-    private ArrayList<ListViewItem> listViewItemList = new ArrayList<ListViewItem>() ;
+    private ArrayList<FoodInfoItem> listViewItemList = new ArrayList<FoodInfoItem>();
 
     // ListViewAdapter의 생성자
     public ListViewAdapter() {
@@ -44,17 +48,19 @@ public class ListViewAdapter extends BaseAdapter {
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        ImageView iconImageView = (ImageView) convertView.findViewById(R.id.imageView1) ;
-        TextView titleTextView = (TextView) convertView.findViewById(R.id.textView1) ;
-        TextView descTextView = (TextView) convertView.findViewById(R.id.textView2) ;
+        ImageView iconImageView = convertView.findViewById(R.id.imageView1);
+        TextView titleTextView = convertView.findViewById(R.id.textView1);
+        TextView descTextView = convertView.findViewById(R.id.textView2);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
-        ListViewItem listViewItem = listViewItemList.get(position);
+        FoodInfoItem foodInfoItem = listViewItemList.get(position);
 
         // 아이템 내 각 위젯에 데이터 반영
-        iconImageView.setImageDrawable(listViewItem.getIcon());
-        titleTextView.setText(listViewItem.getTitle());
-        descTextView.setText(listViewItem.getDesc());
+        Drawable icon = foodInfoItem.getIcon();
+        if (icon != null)
+            iconImageView.setImageDrawable(icon);
+        titleTextView.setText(foodInfoItem.getTitle());
+        descTextView.setText(String.format("Expiration date : %s", foodInfoItem.getDesc()));
 
         return convertView;
     }
@@ -73,12 +79,22 @@ public class ListViewAdapter extends BaseAdapter {
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
     public void addItem(Drawable icon, String title, String desc) {
-        ListViewItem item = new ListViewItem();
+        FoodInfoItem item = new FoodInfoItem(icon, title, desc);
+        addItem(item);
+    }
 
-        item.setIcon(icon);
-        item.setTitle(title);
-        item.setDesc(desc);
+    public void addItem(FoodInfoItem infoItem) {
+        listViewItemList.add(infoItem);
+        notifyDataSetChanged();
+    }
 
-        listViewItemList.add(item);
+    public void setFood(List<Food> foodList) {
+        listViewItemList = new ArrayList<>();
+        for (int i = 0; i < foodList.size(); i++) {
+            Food food = foodList.get(i);
+            listViewItemList.add(new FoodInfoItem(null, food.getName(), FormatUtils.formatDate(food.getExpireTimestamp())));
+        }
+
+        notifyDataSetChanged();
     }
 }

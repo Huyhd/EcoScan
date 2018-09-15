@@ -17,7 +17,12 @@ import android.widget.ListView;
 
 import org.tensorflow.demo.ClassifierActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import app.creatingminds.ecoscan.EcoApp;
 import app.creatingminds.ecoscan.R;
+import app.creatingminds.ecoscan.data.model.Food;
 import app.creatingminds.ecoscan.ui.iteminfo.IteminfoActivity;
 import app.creatingminds.ecoscan.ui.settings.SettingActivity;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
@@ -26,6 +31,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ZXingScannerView scannerView;
+    private List<Food> foodList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,21 +48,40 @@ public class MainActivity extends AppCompatActivity
         final ListView lv = (ListView)findViewById(R.id.Foodlist);
         lv.setAdapter(adapter);
 
-        // 첫 번째 아이템 추가.
-        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.tengerine),
-                "Orange","Expiration date : 2017/11/10") ;
-        // 두 번째 아이템 추가.
-        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.banana),
-                "Banana", "Expiration date : 2017/10/28") ;
-        // 세 번째 아이템 추가.
-        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.hotsix),
-                "Hotsix", "2018/07/18") ;
+        // TODO: Optimize
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                foodList = EcoApp.getDataManager().getDatabase().foodDao().getAll();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (foodList == null || foodList.isEmpty()) {
+                            // Load default data if empty
+
+                            // 첫 번째 아이템 추가.
+                            adapter.addItem(ContextCompat.getDrawable(MainActivity.this, R.drawable.tengerine),
+                                    "Orange", "2017/11/10");
+                            // 두 번째 아이템 추가.
+                            adapter.addItem(ContextCompat.getDrawable(MainActivity.this, R.drawable.banana),
+                                    "Banana", "2017/10/28");
+                            // 세 번째 아이템 추가.
+                            adapter.addItem(ContextCompat.getDrawable(MainActivity.this, R.drawable.hotsix),
+                                    "Hotsix", "2018/07/18");
+                        } else {
+                            adapter.setFood(foodList);
+                        }
+                    }
+                });
+            }
+        }).start();
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 // get item
-                ListViewItem item = (ListViewItem) parent.getItemAtPosition(position) ;
+                FoodInfoItem item = (FoodInfoItem) parent.getItemAtPosition(position);
 
                 String titleStr = item.getTitle() ;
                 String descStr = item.getDesc() ;

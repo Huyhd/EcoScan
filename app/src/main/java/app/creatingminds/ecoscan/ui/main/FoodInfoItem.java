@@ -6,10 +6,16 @@ package app.creatingminds.ecoscan.ui.main;
 
 import android.graphics.drawable.Drawable;
 
-public class ListViewItem {
+public class FoodInfoItem {
     private Drawable iconDrawable ;
     private String titleStr ;
     private String descStr ;
+
+    public FoodInfoItem(Drawable icon, String title, String desc) {
+        this.iconDrawable = icon;
+        this.titleStr = title;
+        this.descStr = desc;
+    }
 
     public void setIcon(Drawable icon) {
         iconDrawable = icon ;
