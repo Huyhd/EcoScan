@@ -92,14 +92,14 @@ public class ListViewAdapter extends BaseAdapter {
         listViewItemList = new ArrayList<>();
         for (int i = 0; i < foodList.size(); i++) {
             Food food = foodList.get(i);
-            listViewItemList.add(new FoodInfoItem(UiUtils.getRandomFoodIcon(), food.getName(), FormatUtils.formatDate(food.getExpireTimestamp())));
+            listViewItemList.add(new FoodInfoItem(UiUtils.getFoodIcon(food.getName()), food.getName(), FormatUtils.formatDate(food.getExpireTimestamp())));
         }
 
         notifyDataSetChanged();
     }
 
     public void updateFood(int i, Food food) {
-        listViewItemList.set(i, new FoodInfoItem(UiUtils.getRandomFoodIcon(), food.getName(), FormatUtils.formatDate(food.getExpireTimestamp())));
+        listViewItemList.set(i, new FoodInfoItem(UiUtils.getFoodIcon(food.getName()), food.getName(), FormatUtils.formatDate(food.getExpireTimestamp())));
         notifyDataSetChanged();
     }
 

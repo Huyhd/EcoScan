@@ -1,9 +1,11 @@
 package app.creatingminds.ecoscan.utils;
 
+import android.content.Context;
 import android.support.annotation.DrawableRes;
 
 import java.util.Random;
 
+import app.creatingminds.ecoscan.EcoApp;
 import app.creatingminds.ecoscan.R;
 
 /**
@@ -18,5 +20,25 @@ public final class UiUtils {
         Random random = new Random();
 
         return FOOD_ICONS[random.nextInt(2)];
+    }
+
+    /**
+     * Stringify food name and get corresponding img if exists. If not get default random img
+     *
+     * @param foodName
+     * @return
+     */
+    public static @DrawableRes
+    int getFoodIcon(String foodName) {
+        Context context = EcoApp.getAppContext();
+
+        foodName = FormatUtils.stringify(foodName);
+
+        int id = context.getResources().getIdentifier(foodName, "drawable", context.getPackageName());
+
+        if (id == 0)
+            id = getRandomFoodIcon();
+
+        return id;
     }
 }

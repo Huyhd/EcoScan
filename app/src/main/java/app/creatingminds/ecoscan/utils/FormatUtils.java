@@ -11,6 +11,12 @@ import java.util.Locale;
 public final class FormatUtils {
     private static final DateFormat NORMAL_DATE_FORMATTER = new SimpleDateFormat("yyyy//MM/dd", Locale.US);
 
+    /**
+     * Format timestamp to date string with format yyyy/MM/dd
+     *
+     * @param timestamp
+     * @return
+     */
     public static String formatDate(long timestamp) {
         return NORMAL_DATE_FORMATTER.format(timestamp);
     }
@@ -23,5 +29,15 @@ public final class FormatUtils {
         }
 
         return 0;
+    }
+
+    /**
+     * Convert string with space to "_"
+     *
+     * @param input
+     * @return
+     */
+    public static String stringify(String input) {
+        return input.replace(" ", "_");
     }
 }
