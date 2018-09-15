@@ -40,6 +40,7 @@ import java.util.Vector;
 import app.creatingminds.ecoscan.R;
 import app.creatingminds.ecoscan.ui.edititem.EditItemActivity;
 import app.creatingminds.ecoscan.ui.edititem.FoodItem;
+import app.creatingminds.ecoscan.utils.Const;
 import app.creatingminds.ecoscan.utils.FormatUtils;
 
 public class ClassifierActivity extends CameraActivity implements OnImageAvailableListener, View.OnClickListener {
@@ -236,7 +237,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                 try {
                     if (results != null && !results.isEmpty()) {
                         String name = results.get(0).getTitle();
-                        foodList.add(new FoodItem(name, FormatUtils.formatDate(System.currentTimeMillis())));
+                        foodList.add(new FoodItem(name, FormatUtils.formatDate(System.currentTimeMillis() + Const.DEFAULT_EXPIRE_DATE)));
                         Toast.makeText(ClassifierActivity.this, "Added",
                                 Toast.LENGTH_SHORT).show();
                     }
