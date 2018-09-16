@@ -35,7 +35,6 @@ import app.creatingminds.ecoscan.data.DataManager;
 import app.creatingminds.ecoscan.data.model.Food;
 import app.creatingminds.ecoscan.ui.iteminfo.IteminfoActivity;
 import app.creatingminds.ecoscan.ui.settings.SettingActivity;
-import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -45,7 +44,6 @@ public class MainActivity extends AppCompatActivity
     private static final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
     private static final String PERMISSION_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-    private ZXingScannerView scannerView;
     private ListView lvFood;
 
     private List<Food> foodList = new ArrayList<>();
