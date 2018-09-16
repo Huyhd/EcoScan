@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity
     private static final String PERMISSION_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
     private ListView lvFood;
+    private FloatingActionButton fabCamera;
+    private FloatingActionButton fabManual;
 
     private List<Food> foodList = new ArrayList<>();
     private DataManager dataManager;
@@ -62,6 +65,9 @@ public class MainActivity extends AppCompatActivity
 
         // 리스트뷰 참조 및 Adapter달기
         lvFood = findViewById(R.id.lv_food);
+        fabCamera = findViewById(R.id.btn_add_camera);
+        fabManual = findViewById(R.id.btn_add_manual);
+
         lvFood.setAdapter(adapter);
 
         foodList = dataManager.getCachedFoodList();
@@ -252,11 +258,24 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void onAddBtnClicked(View view) {
+    public void onAddCameraBtnClicked(View view) {
         if (hasPermission()) {
             startClassifierActivity();
         } else {
             requestPermission();
+        }
+    }
+
+    public void onAddManualBtnClicked(View view) {
+    }
+
+    public void onAddBtnClicked(View view) {
+        if (fabCamera.isShown()) {
+            fabCamera.setVisibility(View.GONE);
+            fabManual.setVisibility(View.GONE);
+        } else {
+            fabCamera.setVisibility(View.VISIBLE);
+            fabManual.setVisibility(View.VISIBLE);
         }
     }
 

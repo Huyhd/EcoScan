@@ -16,4 +16,5 @@
 -->
 <resources>
     <color name="control_background">#ccffffff</color>
+    <color name="material_green_400">#FF66BB6A</color>
 </resources>

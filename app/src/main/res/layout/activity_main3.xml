@@ -68,23 +68,43 @@
             android:divider="#0000"
             android:dividerHeight="8dp" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_add_manual"
+            android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="16dp">
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="160dp"
+            android:background="@color/material_green_400"
+            android:onClick="onAddManualBtnClicked"
+            android:src="@drawable/ic_edit_white"
+            android:visibility="gone" />
 
-            <ImageButton
-                android:id="@+id/btn_add"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="16dp"
-                android:background="@android:color/transparent"
-                android:onClick="onAddBtnClicked"
-                android:scaleType="centerInside"
-                android:src="@drawable/addbutton" />
-        </RelativeLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_add_camera"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="96dp"
+            android:background="@color/material_green_400"
+            android:onClick="onAddCameraBtnClicked"
+            android:src="@drawable/ic_camera_white"
+            android:visibility="gone" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_add"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/material_green_400"
+            android:onClick="onAddBtnClicked"
+            android:src="@drawable/ic_add_white" />
 
     </RelativeLayout>
 
