@@ -1,11 +1,15 @@
 package app.creatingminds.ecoscan.ui.main;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,6 +21,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.tensorflow.demo.ClassifierActivity;
 
@@ -34,6 +39,11 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final int CAMERA_STORAGE_PERMISSIONS_REQUEST = 1;
+
+    private static final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
+    private static final String PERMISSION_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
     private ZXingScannerView scannerView;
     private ListView lvFood;
@@ -187,6 +197,41 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    public void onRequestPermissionsResult(
+            final int requestCode, @NonNull final String[] permissions, @NonNull final int[] grantResults) {
+        if (requestCode == CAMERA_STORAGE_PERMISSIONS_REQUEST) {
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                    && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                startClassifierActivity();
+            } else {
+                requestPermission();
+            }
+        }
+    }
+
+    private boolean hasPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return checkSelfPermission(PERMISSION_CAMERA) == PackageManager.PERMISSION_GRANTED &&
+                    checkSelfPermission(PERMISSION_STORAGE) == PackageManager.PERMISSION_GRANTED;
+        } else {
+            return true;
+        }
+    }
+
+    private void requestPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (shouldShowRequestPermissionRationale(PERMISSION_CAMERA) ||
+                    shouldShowRequestPermissionRationale(PERMISSION_STORAGE)) {
+                Toast.makeText(this,
+                        "Camera & storage permission are required for this app to work", Toast.LENGTH_LONG).show();
+            }
+            requestPermissions(new String[]{PERMISSION_CAMERA, PERMISSION_STORAGE}, CAMERA_STORAGE_PERMISSIONS_REQUEST);
+        }
+    }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -210,6 +255,14 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onAddBtnClicked(View view) {
+        if (hasPermission()) {
+            startClassifierActivity();
+        } else {
+            requestPermission();
+        }
+    }
+
+    private void startClassifierActivity() {
         Intent opencamera = new Intent(this, ClassifierActivity.class);
         startActivity(opencamera);
     }
