@@ -19,6 +19,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.ListView;
@@ -49,6 +51,11 @@ public class MainActivity extends AppCompatActivity
     private FloatingActionButton fabCamera;
     private FloatingActionButton fabManual;
 
+    private Animation showFab;
+    private Animation hideFab;
+    private Animation rotateShowFab;
+    private Animation rotateHideFab;
+
     private List<Food> foodList = new ArrayList<>();
     private DataManager dataManager;
     private ListViewAdapter adapter;
@@ -61,7 +68,12 @@ public class MainActivity extends AppCompatActivity
         dataManager = EcoApp.getDataManager();
 
         // Adapter 생성
-        adapter = new ListViewAdapter() ;
+        adapter = new ListViewAdapter();
+
+        showFab = AnimationUtils.loadAnimation(this, R.anim.fab_show);
+        hideFab = AnimationUtils.loadAnimation(this, R.anim.fab_hide);
+        rotateShowFab = AnimationUtils.loadAnimation(this, R.anim.fab_rotate_show);
+        rotateHideFab = AnimationUtils.loadAnimation(this, R.anim.fab_rotate_hide);
 
         // 리스트뷰 참조 및 Adapter달기
         lvFood = findViewById(R.id.lv_food);
@@ -271,9 +283,15 @@ public class MainActivity extends AppCompatActivity
 
     public void onAddBtnClicked(View view) {
         if (fabCamera.isShown()) {
+            view.setAnimation(rotateHideFab);
+            fabCamera.startAnimation(hideFab);
+            fabManual.startAnimation(hideFab);
             fabCamera.setVisibility(View.GONE);
             fabManual.setVisibility(View.GONE);
         } else {
+            view.setAnimation(rotateShowFab);
+            fabCamera.startAnimation(showFab);
+            fabManual.startAnimation(showFab);
             fabCamera.setVisibility(View.VISIBLE);
             fabManual.setVisibility(View.VISIBLE);
         }

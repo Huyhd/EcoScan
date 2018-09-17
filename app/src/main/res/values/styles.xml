@@ -15,5 +15,7 @@
 -->
 <resources>
 
-
+    <style name="NoActionBar" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:colorAccent">@color/colorAccent</item>
+    </style>
 </resources>

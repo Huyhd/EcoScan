@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="#39b54a">
+        android:background="@color/material_green_500">
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginBottom="16dp"
-        android:background="#39b54a"
+        android:background="@color/material_green_500"
         android:onClick="onDoneClick"
         android:text="Done"
         android:textColor="#FFFF"

@@ -36,7 +36,7 @@
                 android:layout_marginTop="90dp"
                 android:layout_marginRight="20dp"
                 android:text="Feed"
-                android:textColor="#39b54a"
+                android:textColor="@color/material_green_500"
                 android:textSize="60dp"
                 android:textStyle="bold" />
 
@@ -56,12 +56,12 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_below="@id/header_container"
-            android:background="#39b54a" />
+            android:background="@color/material_green_500" />
 
         <ListView
             android:id="@+id/lv_food"
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@id/header_container"
             android:layout_gravity="bottom"
             android:layout_marginTop="64dp"
@@ -69,42 +69,42 @@
             android:dividerHeight="8dp" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/btn_add_manual"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:id="@+id/btn_add"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="160dp"
-            android:background="@color/material_green_400"
-            android:onClick="onAddManualBtnClicked"
-            android:src="@drawable/ic_edit_white"
-            android:visibility="gone" />
+            android:layout_marginBottom="16dp"
+            android:onClick="onAddBtnClicked"
+            android:src="@drawable/ic_add_white"
+            app:backgroundTint="@color/material_green_500" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/btn_add_camera"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_above="@id/btn_add"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="96dp"
-            android:background="@color/material_green_400"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="8dp"
             android:onClick="onAddCameraBtnClicked"
             android:src="@drawable/ic_camera_white"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:backgroundTint="@color/material_green_500" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/btn_add"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:id="@+id/btn_add_manual"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_above="@id/btn_add_camera"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@color/material_green_400"
-            android:onClick="onAddBtnClicked"
-            android:src="@drawable/ic_add_white" />
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="8dp"
+            app:backgroundTint="@color/material_green_500"
+            android:onClick="onAddManualBtnClicked"
+            android:src="@drawable/ic_edit_white"
+            android:visibility="gone" />
 
     </RelativeLayout>
 

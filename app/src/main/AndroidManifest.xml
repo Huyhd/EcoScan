@@ -79,7 +79,6 @@
         </activity>
         -->
 
-        <activity android:name=".ClassifierActivity" />
         <activity android:name=".ui.iteminfo.IteminfoActivity" />
         <activity android:name=".ui.settings.SettingActivity" />
         <activity
@@ -88,7 +87,7 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:label="eco"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/NoActionBar" />
     </application>
 
 </manifest>

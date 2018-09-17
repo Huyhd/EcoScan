@@ -15,6 +15,8 @@
  limitations under the License.
 -->
 <resources>
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorAccent">#4CAF50</color>
     <color name="control_background">#ccffffff</color>
-    <color name="material_green_400">#FF66BB6A</color>
+    <color name="material_green_500">#4CAF50</color>
 </resources>
