@@ -3,6 +3,7 @@ package app.creatingminds.ecoscan.ui.main;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -48,10 +49,13 @@ public class MainActivity extends AppCompatActivity
 
     private static final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
     private static final String PERMISSION_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
+    private static final String TAG_INPUT_DIALOG = "input_dialog";
 
     private ListView lvFood;
     private FloatingActionButton fabCamera;
     private FloatingActionButton fabManual;
+    private FloatingActionButton fabParent;
+    private InputDialogFragment inputDialogFragment;
 
     private Animation showFab;
     private Animation hideFab;
@@ -79,8 +83,10 @@ public class MainActivity extends AppCompatActivity
 
         // 리스트뷰 참조 및 Adapter달기
         lvFood = findViewById(R.id.lv_food);
-        fabCamera = findViewById(R.id.btn_add_camera);
-        fabManual = findViewById(R.id.btn_add_manual);
+        fabCamera = findViewById(R.id.fab_add_camera);
+        fabManual = findViewById(R.id.fab_add_manual);
+        fabParent = findViewById(R.id.fab_add);
+        inputDialogFragment = InputDialogFragment.newInstance();
 
         lvFood.setAdapter(adapter);
 
@@ -108,79 +114,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        lvFood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView parent, View v, final int position, long id) {
-                final Food food = foodList.get(position);
-
-                final Calendar c = Calendar.getInstance();
-                c.setTimeInMillis(food.getExpireTimestamp());
-
-                DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this,
-                        new DatePickerDialog.OnDateSetListener() {
-
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                c.set(Calendar.YEAR, year);
-                                c.set(Calendar.MONTH, monthOfYear);
-                                c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-
-                                food.setExpireTimestamp(c.getTimeInMillis());
-
-                                foodList.set(position, food);
-                                adapter.updateFood(position, food);
-
-                                // TODO: Optimize
-                                new Thread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        dataManager.getDatabase().foodDao().updateAll(food);
-                                        dataManager.setCachedFoodList(foodList);
-                                    }
-                                }).start();
-                            }
-                        }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
-                datePickerDialog.show();
-            }
-        });
-
-        lvFood.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int pos, long l) {
-                AlertDialog.Builder builder =
-                        new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_Material_Dialog_Alert)
-                                .setTitle("Delete food")
-                                .setMessage("Are you sure to delete this food?")
-                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        adapter.removeItem(pos);
-
-                                        // TODO: Optimize
-                                        new Thread(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                // Update data
-                                                Food food = foodList.get(pos);
-                                                dataManager.getDatabase().foodDao().delete(food);
-                                                foodList.remove(pos);
-                                            }
-                                        }).start();
-                                    }
-                                })
-                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.dismiss();
-                                    }
-                                });
-
-
-                builder.create().show();
-
-                return false; // Dispatch event to next layer
-            }
-        });
+        setupEventListeners();
     }
 
     @Override
@@ -272,7 +206,101 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    private void setupEventListeners() {
+        lvFood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView parent, View v, final int position, long id) {
+                final Food food = foodList.get(position);
+
+                final Calendar c = Calendar.getInstance();
+                c.setTimeInMillis(food.getExpireTimestamp());
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this,
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                                c.set(Calendar.YEAR, year);
+                                c.set(Calendar.MONTH, monthOfYear);
+                                c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                                food.setExpireTimestamp(c.getTimeInMillis());
+
+                                foodList.set(position, food);
+                                adapter.updateFood(position, food);
+
+                                // TODO: Optimize
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        dataManager.getDatabase().foodDao().updateAll(food);
+                                        dataManager.setCachedFoodList(foodList);
+                                    }
+                                }).start();
+                            }
+                        }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
+                datePickerDialog.show();
+            }
+        });
+
+        lvFood.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int pos, long l) {
+                AlertDialog.Builder builder =
+                        new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_Material_Dialog_Alert)
+                                .setTitle("Delete food")
+                                .setMessage("Are you sure to delete this food?")
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        adapter.removeItem(pos);
+
+                                        // TODO: Optimize
+                                        new Thread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                // Update data
+                                                Food food = foodList.get(pos);
+                                                dataManager.getDatabase().foodDao().delete(food);
+                                                foodList.remove(pos);
+                                            }
+                                        }).start();
+                                    }
+                                })
+                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+
+                builder.create().show();
+
+                return false; // Dispatch event to next layer
+            }
+        });
+
+        inputDialogFragment.setOnPositiveClickListener(new InputDialogFragment.OnPositiveClickListener() {
+            @Override
+            public void onClick(DialogFragment dialog, String foodName, long timestamp) {
+                final Food food = new Food(foodName, timestamp);
+                foodList.add(food);
+                adapter.addItem(food);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        dataManager.getDatabase().foodDao().insertAll(food);
+                    }
+                }).start();
+
+                dialog.dismiss();
+            }
+        });
+    }
+
     public void onAddCameraBtnClicked(View view) {
+        startHideAnimation(fabParent);
         if (hasPermission()) {
             startClassifierActivity();
         } else {
@@ -281,22 +309,32 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onAddManualBtnClicked(View view) {
+        startHideAnimation(fabParent);
+        inputDialogFragment.show(getFragmentManager(), TAG_INPUT_DIALOG);
     }
 
     public void onAddBtnClicked(View view) {
         if (fabCamera.isShown()) {
-            view.setAnimation(rotateHideFab);
-            fabCamera.startAnimation(hideFab);
-            fabManual.startAnimation(hideFab);
-            fabCamera.setVisibility(View.GONE);
-            fabManual.setVisibility(View.GONE);
+            startHideAnimation(view);
         } else {
-            view.setAnimation(rotateShowFab);
-            fabCamera.startAnimation(showFab);
-            fabManual.startAnimation(showFab);
-            fabCamera.setVisibility(View.VISIBLE);
-            fabManual.setVisibility(View.VISIBLE);
+            startShowAnimation(view);
         }
+    }
+
+    private void startShowAnimation(View parentButton) {
+        parentButton.setAnimation(rotateShowFab);
+        fabCamera.startAnimation(showFab);
+        fabManual.startAnimation(showFab);
+        fabCamera.setVisibility(View.VISIBLE);
+        fabManual.setVisibility(View.VISIBLE);
+    }
+
+    private void startHideAnimation(View parentButton) {
+        parentButton.setAnimation(rotateHideFab);
+        fabCamera.startAnimation(hideFab);
+        fabManual.startAnimation(hideFab);
+        fabCamera.setVisibility(View.GONE);
+        fabManual.setVisibility(View.GONE);
     }
 
     private void startClassifierActivity() {
