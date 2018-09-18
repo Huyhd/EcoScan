@@ -59,7 +59,7 @@ public class ListViewAdapter extends BaseAdapter {
 
         // 아이템 내 각 위젯에 데이터 반영
         iconImageView.setImageDrawable(ContextCompat.getDrawable(context, foodInfoItem.getIcon()));
-        titleTextView.setText(foodInfoItem.getTitle());
+        titleTextView.setText(FormatUtils.capitalizeWords(foodInfoItem.getTitle()));
         descTextView.setText(String.format("Expiration date : %s", foodInfoItem.getDesc()));
 
         return convertView;

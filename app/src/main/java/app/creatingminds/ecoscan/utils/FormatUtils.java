@@ -40,4 +40,10 @@ public final class FormatUtils {
     public static String stringify(String input) {
         return input.replace(" ", "_");
     }
+
+    public static String capitalizeWords(String input) {
+        StringBuilder sb = new StringBuilder(input);
+        sb.setCharAt(0, Character.toUpperCase(sb.charAt(0)));
+        return sb.toString();
+    }
 }
