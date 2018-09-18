@@ -21,11 +21,13 @@
         android:targetSdkVersion="26" />
 
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:name=".EcoApp"
@@ -43,7 +45,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="org.tensorflow.demo.ClassifierActivity"
             android:label="@string/activity_name_classification"
@@ -85,10 +86,13 @@
         <activity android:name=".ui.settings.SettingActivity" />
         <activity
             android:name=".ui.edititem.EditItemActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".ui.main.MainActivity"
             android:label="eco"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".ui.today.TodayActivity"
             android:theme="@style/NoActionBar" />
     </application>
 

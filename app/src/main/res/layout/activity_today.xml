@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".ui.main.MainActivity"
+    tools:context=".ui.today.TodayActivity"
     tools:openDrawer="start">
 
     <include
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/mainbackimg" />
+            android:src="@drawable/bg_header_today" />
 
         <RelativeLayout
             android:id="@+id/header_container"
@@ -31,30 +31,30 @@
             android:layout_height="200dp">
 
             <TextView
-                android:id="@+id/lbl_feed"
+                android:id="@+id/lbl_food_plan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="128dp"
                 android:layout_marginRight="24dp"
-                android:text="Feed"
-                android:textColor="@color/material_green_500"
-                android:textSize="60sp"
+                android:text="YOUR FOOD PLAN"
+                android:textColor="@color/material_blue_900"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_below="@id/lbl_feed"
+                android:id="@+id/tv_today"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/lbl_food_plan"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="24dp"
-                android:text="Check your Food!"
-                android:textColor="#008"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:text="Today 19 Sep"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
         </RelativeLayout>
 
-        <View
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_below="@id/header_container"
@@ -78,47 +78,8 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:onClick="onAddBtnClicked"
-            android:src="@drawable/ic_add_white"
-            app:backgroundTint="@color/material_green_500" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_add_camera"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_above="@id/fab_add"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="8dp"
-            android:onClick="onAddCameraBtnClicked"
-            android:src="@drawable/ic_camera_white"
-            android:visibility="gone"
-            app:backgroundTint="@color/material_green_500" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_add_manual"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_above="@id/fab_add_camera"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="8dp"
-            app:backgroundTint="@color/material_green_500"
-            android:onClick="onAddManualBtnClicked"
-            android:src="@drawable/ic_edit_white"
-            android:visibility="gone" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_sort"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_above="@id/fab_add_manual"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="8dp"
-            android:onClick="onSortBtnClicked"
-            android:src="@drawable/ic_sort_desc_white"
-            android:visibility="gone"
+            android:onClick="onRandomBtnClicked"
+            android:src="@drawable/ic_refresh_white"
             app:backgroundTint="@color/material_green_500" />
 
     </RelativeLayout>

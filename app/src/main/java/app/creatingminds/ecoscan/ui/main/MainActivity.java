@@ -39,8 +39,8 @@ import app.creatingminds.ecoscan.EcoApp;
 import app.creatingminds.ecoscan.R;
 import app.creatingminds.ecoscan.data.DataManager;
 import app.creatingminds.ecoscan.data.model.Food;
-import app.creatingminds.ecoscan.ui.iteminfo.ItemInfoActivity;
 import app.creatingminds.ecoscan.ui.settings.SettingActivity;
+import app.creatingminds.ecoscan.ui.today.TodayActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -198,8 +198,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_setting) {
             Intent setting = new Intent(MainActivity.this, SettingActivity.class);
             startActivity(setting);
-        } else if (id == R.id.nav_garbage) {
-            Intent info = new Intent(MainActivity.this, ItemInfoActivity.class);
+        } else if (id == R.id.nav_today) {
+            Intent info = new Intent(MainActivity.this, TodayActivity.class);
             startActivity(info);
         }
 

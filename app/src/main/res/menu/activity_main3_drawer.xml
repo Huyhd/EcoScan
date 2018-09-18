@@ -6,12 +6,12 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_camera_alt_black_24dp"
-            android:title="Add Food" />
+            android:icon="@drawable/ic_camera_black_24dp"
+            android:title="Insert Food" />
         <item
-            android:id="@+id/nav_garbage"
-            android:icon="@drawable/ic_delete_black_24dp"
-            android:title="Separate collection" />
+            android:id="@+id/nav_today"
+            android:icon="@drawable/ic_calendar_today_black"
+            android:title="Today" />
         <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/ic_settings_black_24dp"
