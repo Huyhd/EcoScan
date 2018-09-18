@@ -106,6 +106,19 @@
             android:src="@drawable/ic_edit_white"
             android:visibility="gone" />
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_sort"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_above="@id/fab_add_manual"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="8dp"
+            android:onClick="onSortBtnClicked"
+            android:src="@drawable/ic_sort_desc_white"
+            android:visibility="gone"
+            app:backgroundTint="@color/material_green_500" />
+
     </RelativeLayout>
 
     <android.support.design.widget.NavigationView

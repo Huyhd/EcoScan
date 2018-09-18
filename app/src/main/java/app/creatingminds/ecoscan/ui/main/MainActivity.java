@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity
     private ListView lvFood;
     private FloatingActionButton fabCamera;
     private FloatingActionButton fabManual;
+    private FloatingActionButton fabSort;
     private FloatingActionButton fabParent;
     private InputDialogFragment inputDialogFragment;
 
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity
         lvFood = findViewById(R.id.lv_food);
         fabCamera = findViewById(R.id.fab_add_camera);
         fabManual = findViewById(R.id.fab_add_manual);
+        fabSort = findViewById(R.id.fab_sort);
         fabParent = findViewById(R.id.fab_add);
         inputDialogFragment = InputDialogFragment.newInstance();
 
@@ -325,26 +327,25 @@ public class MainActivity extends AppCompatActivity
         parentButton.setAnimation(rotateShowFab);
         fabCamera.startAnimation(showFab);
         fabManual.startAnimation(showFab);
+        fabSort.startAnimation(showFab);
         fabCamera.setVisibility(View.VISIBLE);
         fabManual.setVisibility(View.VISIBLE);
+        fabSort.setVisibility(View.VISIBLE);
     }
 
     private void startHideAnimation(View parentButton) {
         parentButton.setAnimation(rotateHideFab);
         fabCamera.startAnimation(hideFab);
         fabManual.startAnimation(hideFab);
+        fabSort.startAnimation(hideFab);
         fabCamera.setVisibility(View.GONE);
         fabManual.setVisibility(View.GONE);
+        fabSort.setVisibility(View.GONE);
     }
 
     private void startClassifierActivity() {
         Intent opencamera = new Intent(this, ClassifierActivity.class);
         startActivity(opencamera);
-    }
-
-    public void onSortButtonClicked() {
-        sortFoodByExpireDate();
-        adapter.setFood(foodList);
     }
 
     private void sortFoodByExpireDate() {
@@ -354,5 +355,11 @@ public class MainActivity extends AppCompatActivity
                 return Long.compare(f1.getExpireTimestamp(), f2.getExpireTimestamp());
             }
         });
+    }
+
+    public void onSortBtnClicked(View view) {
+        startHideAnimation(fabParent);
+        sortFoodByExpireDate();
+        adapter.setFood(foodList);
     }
 }
