@@ -78,17 +78,24 @@ public class InputDialogFragment extends DialogFragment implements View.OnClickL
                 if (listener != null) {
                     Calendar calendar = Calendar.getInstance();
                     calendar.set(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth());
-                    listener.onClick(this, edtFoodName.getText().toString(), calendar.getTimeInMillis());
+                    String foodName = edtFoodName.getText().toString();
+                    clearInput();
+                    listener.onClick(this, foodName, calendar.getTimeInMillis());
                 }
                 break;
 
             case R.id.btn_cancel:
+                clearInput();
                 dismiss();
                 break;
 
             default:
                 break;
         }
+    }
+
+    private void clearInput() {
+        edtFoodName.setText("");
     }
 
     public interface OnPositiveClickListener {
