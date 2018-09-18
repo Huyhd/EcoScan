@@ -9,7 +9,7 @@ import java.util.Locale;
  * Created by tom on 9/15/18.
  */
 public final class FormatUtils {
-    private static final DateFormat NORMAL_DATE_FORMATTER = new SimpleDateFormat("yyyy//MM/dd", Locale.US);
+    private static final DateFormat NORMAL_DATE_FORMATTER = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
 
     /**
      * Format timestamp to date string with format yyyy/MM/dd
