@@ -39,7 +39,7 @@ import app.creatingminds.ecoscan.EcoApp;
 import app.creatingminds.ecoscan.R;
 import app.creatingminds.ecoscan.data.DataManager;
 import app.creatingminds.ecoscan.data.model.Food;
-import app.creatingminds.ecoscan.ui.iteminfo.IteminfoActivity;
+import app.creatingminds.ecoscan.ui.iteminfo.ItemInfoActivity;
 import app.creatingminds.ecoscan.ui.settings.SettingActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity
             Intent setting = new Intent(MainActivity.this, SettingActivity.class);
             startActivity(setting);
         } else if (id == R.id.nav_garbage) {
-            Intent info = new Intent(MainActivity.this, IteminfoActivity.class);
+            Intent info = new Intent(MainActivity.this, ItemInfoActivity.class);
             startActivity(info);
         }
 
