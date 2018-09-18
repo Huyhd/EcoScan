@@ -9,33 +9,37 @@ import android.support.annotation.DrawableRes;
 public class FoodInfoItem {
     private @DrawableRes
     int iconDrawable;
-    private String titleStr ;
-    private String descStr ;
+    private String title;
+    private String expireDate;
 
     public FoodInfoItem(int icon, String title, String desc) {
         this.iconDrawable = icon;
-        this.titleStr = title;
-        this.descStr = desc;
+        this.title = title;
+        this.expireDate = desc;
     }
 
     public @DrawableRes
     int getIcon() {
         return this.iconDrawable;
     }
-    public void setTitle(String title) {
-        titleStr = title ;
+
+    public String getTitle() {
+        return this.title;
     }
-    public void setDesc(String desc) {
-        descStr = desc ;
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public void setIcon(@DrawableRes int icon) {
         iconDrawable = icon;
     }
-    public String getTitle() {
-        return this.titleStr ;
+
+    public String getExpireDate() {
+        return this.expireDate;
     }
-    public String getDesc() {
-        return this.descStr ;
+
+    public void setExpireDate(String expireDate) {
+        this.expireDate = expireDate;
     }
 }

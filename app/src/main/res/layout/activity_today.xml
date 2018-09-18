@@ -1,95 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFF"
     android:fitsSystemWindows="true"
-    tools:context=".ui.today.TodayActivity"
-    tools:openDrawer="start">
+    tools:context=".ui.today.TodayActivity">
 
-    <include
-        layout="@layout/app_bar_main3"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_header_today" />
 
     <RelativeLayout
+        android:id="@+id/header_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFF">
+        android:layout_height="200dp">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/bg_header_today" />
-
-        <RelativeLayout
-            android:id="@+id/header_container"
-            android:layout_width="match_parent"
-            android:layout_height="200dp">
-
-            <TextView
-                android:id="@+id/lbl_food_plan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="128dp"
-                android:layout_marginRight="24dp"
-                android:text="YOUR FOOD PLAN"
-                android:textColor="@color/material_blue_900"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_today"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/lbl_food_plan"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="24dp"
-                android:text="Today 19 Sep"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
-        </RelativeLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/header_container"
-            android:background="@color/material_green_500" />
-
-        <ListView
-            android:id="@+id/lv_food"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/lbl_food_plan"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/header_container"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="64dp"
-            android:divider="#0000"
-            android:dividerHeight="8dp" />
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="128dp"
+            android:layout_marginRight="24dp"
+            android:text="YOUR FOOD PLAN"
+            android:textColor="@color/material_blue_900"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_add"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:onClick="onRandomBtnClicked"
-            android:src="@drawable/ic_refresh_white"
-            app:backgroundTint="@color/material_green_500" />
-
+        <TextView
+            android:id="@+id/tv_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lbl_food_plan"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="24dp"
+            android:text="Today 19 Sep"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
     </RelativeLayout>
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main3"
-        app:menu="@menu/activity_main3_drawer" />
-</android.support.v4.widget.DrawerLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/header_container"
+        android:background="@color/material_green_500" />
+
+    <ListView
+        android:id="@+id/lv_food"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header_container"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="64dp"
+        android:divider="#0000"
+        android:dividerHeight="8dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_refresh"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="onRandomBtnClicked"
+        android:src="@drawable/ic_refresh_white"
+        app:backgroundTint="@color/material_green_500" />
+
+</RelativeLayout>
