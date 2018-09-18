@@ -30,6 +30,8 @@ import org.tensorflow.demo.ClassifierActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import app.creatingminds.ecoscan.EcoApp;
@@ -300,5 +302,19 @@ public class MainActivity extends AppCompatActivity
     private void startClassifierActivity() {
         Intent opencamera = new Intent(this, ClassifierActivity.class);
         startActivity(opencamera);
+    }
+
+    public void onSortButtonClicked() {
+        sortFoodByExpireDate();
+        adapter.setFood(foodList);
+    }
+
+    private void sortFoodByExpireDate() {
+        Collections.sort(foodList, new Comparator<Food>() {
+            @Override
+            public int compare(Food f1, Food f2) {
+                return Long.compare(f1.getExpireTimestamp(), f2.getExpireTimestamp());
+            }
+        });
     }
 }
