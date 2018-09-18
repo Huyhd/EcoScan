@@ -21,4 +21,5 @@
     <color name="material_green_500">#4CAF50</color>
     <color name="material_blue_500">#2196F3</color>
     <color name="material_blue_900">#0000d6</color>
+    <color name="material_gray_500">#9E9E9E</color>
 </resources>

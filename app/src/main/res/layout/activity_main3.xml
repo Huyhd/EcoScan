@@ -43,9 +43,9 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_below="@id/lbl_feed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/lbl_feed"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="24dp"
                 android:text="Check your Food!"
@@ -59,6 +59,29 @@
             android:layout_height="40dp"
             android:layout_below="@id/header_container"
             android:background="@color/material_green_500" />
+
+        <LinearLayout
+            android:id="@+id/layout_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header_container"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="160dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No food recorded, let's add a new one"
+                android:textColor="@color/material_gray_500" />
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="16dp"
+                android:src="@drawable/ic_food_fork_drink_gray" />
+        </LinearLayout>
 
         <ListView
             android:id="@+id/lv_food"
@@ -103,10 +126,10 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="8dp"
-            app:backgroundTint="@color/material_green_500"
             android:onClick="onAddManualBtnClicked"
             android:src="@drawable/ic_edit_white"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:backgroundTint="@color/material_green_500" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_sort"

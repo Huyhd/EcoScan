@@ -24,6 +24,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity
     private FloatingActionButton fabManual;
     private FloatingActionButton fabSort;
     private FloatingActionButton fabParent;
+    private LinearLayout layoutPlaceHolder;
     private InputDialogFragment inputDialogFragment;
 
     private Animation showFab;
@@ -88,21 +90,14 @@ public class MainActivity extends AppCompatActivity
         fabManual = findViewById(R.id.fab_add_manual);
         fabSort = findViewById(R.id.fab_sort);
         fabParent = findViewById(R.id.fab_add);
+        layoutPlaceHolder = findViewById(R.id.layout_placeholder);
         inputDialogFragment = InputDialogFragment.newInstance();
 
         lvFood.setAdapter(adapter);
 
         foodList = dataManager.getCachedFoodList();
-        if (foodList == null || foodList.isEmpty()) {
-            // Load default data if empty
-
-            // 첫 번째 아이템 추가.
-            adapter.addItem(R.drawable.tengerine, "Orange", "2017/11/10");
-            // 두 번째 아이템 추가.
-            adapter.addItem(R.drawable.banana, "Banana", "2017/10/28");
-            // 세 번째 아이템 추가.
-            adapter.addItem(R.drawable.hotsix, "Hotsix", "2018/07/18");
-        } else {
+        if (foodList != null && !foodList.isEmpty()) {
+            layoutPlaceHolder.setVisibility(View.GONE);
             adapter.setFood(foodList);
         }
 
@@ -286,6 +281,8 @@ public class MainActivity extends AppCompatActivity
         inputDialogFragment.setOnPositiveClickListener(new InputDialogFragment.OnPositiveClickListener() {
             @Override
             public void onClick(DialogFragment dialog, String foodName, long timestamp) {
+                layoutPlaceHolder.setVisibility(View.GONE);
+
                 final Food food = new Food(foodName, timestamp);
                 foodList.add(food);
                 adapter.addItem(food);
