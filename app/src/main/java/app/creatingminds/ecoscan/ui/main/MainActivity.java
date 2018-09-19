@@ -252,15 +252,18 @@ public class MainActivity extends AppCompatActivity
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         adapter.removeItem(pos);
+                                        final Food food = foodList.get(pos);
+                                        foodList.remove(pos);
+
+                                        if (foodList.isEmpty())
+                                            layoutPlaceHolder.setVisibility(View.VISIBLE);
 
                                         // TODO: Optimize
                                         new Thread(new Runnable() {
                                             @Override
                                             public void run() {
                                                 // Update data
-                                                Food food = foodList.get(pos);
                                                 dataManager.getDatabase().foodDao().delete(food);
-                                                foodList.remove(pos);
                                             }
                                         }).start();
                                     }
