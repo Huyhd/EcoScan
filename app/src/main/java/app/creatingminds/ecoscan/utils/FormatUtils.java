@@ -10,6 +10,7 @@ import java.util.Locale;
  */
 public final class FormatUtils {
     private static final DateFormat NORMAL_DATE_FORMATTER = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+    private static final DateFormat SHORT_MONTH_DATE_FORMATTER = new SimpleDateFormat("dd MMM", Locale.US);
 
     /**
      * Format timestamp to date string with format yyyy/MM/dd
@@ -19,6 +20,10 @@ public final class FormatUtils {
      */
     public static String formatDate(long timestamp) {
         return NORMAL_DATE_FORMATTER.format(timestamp);
+    }
+
+    public static String formatDateShortMonth(long timestamp) {
+        return SHORT_MONTH_DATE_FORMATTER.format(timestamp);
     }
 
     public static long convertDateToTimestamp(String date) {

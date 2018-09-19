@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +16,14 @@ import app.creatingminds.ecoscan.R;
 import app.creatingminds.ecoscan.data.DataManager;
 import app.creatingminds.ecoscan.data.model.Food;
 import app.creatingminds.ecoscan.utils.Const;
+import app.creatingminds.ecoscan.utils.FormatUtils;
 
 public class TodayActivity extends AppCompatActivity {
 
     private ListView lvFood;
     private FloatingActionButton fabRefresh;
     private LinearLayout layoutPlaceHolder;
+    private TextView tvToday;
 
     private DataManager dataManager;
     private TodayListAdapter adapter;
@@ -38,8 +41,10 @@ public class TodayActivity extends AppCompatActivity {
         lvFood = findViewById(R.id.lv_food);
         fabRefresh = findViewById(R.id.fab_refresh);
         layoutPlaceHolder = findViewById(R.id.layout_placeholder);
+        tvToday = findViewById(R.id.tv_today);
 
         lvFood.setAdapter(adapter);
+        tvToday.setText(String.format("Today, %s", FormatUtils.formatDateShortMonth(System.currentTimeMillis())));
 
         randomFoodList = dataManager.getRandomFoodList(Const.DEFAULT_FOOD_ITEM_TODAY);
         if (randomFoodList != null && !randomFoodList.isEmpty()) {
