@@ -14,4 +14,6 @@ public interface DataManager {
     List<Food> getCachedFoodList();
 
     void setCachedFoodList(List<Food> foodList);
+
+    List<Food> getRandomFoodList(int count);
 }

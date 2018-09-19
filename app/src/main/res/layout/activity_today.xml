@@ -49,6 +49,29 @@
         android:layout_below="@id/header_container"
         android:background="@color/material_green_500" />
 
+    <LinearLayout
+        android:id="@+id/layout_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No food recorded, let's add a new one"
+            android:textColor="@color/material_gray_500" />
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_food_fork_drink_gray" />
+    </LinearLayout>
+
     <ListView
         android:id="@+id/lv_food"
         android:layout_width="match_parent"
