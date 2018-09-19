@@ -96,12 +96,6 @@ public class MainActivity extends AppCompatActivity
 
         lvFood.setAdapter(adapter);
 
-        foodList = dataManager.getCachedFoodList();
-        if (foodList != null && !foodList.isEmpty()) {
-            layoutPlaceHolder.setVisibility(View.GONE);
-            adapter.setFood(foodList);
-        }
-
         //Menu
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -113,6 +107,16 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         setupEventListeners();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        foodList = dataManager.getCachedFoodList();
+        if (foodList != null && !foodList.isEmpty()) {
+            layoutPlaceHolder.setVisibility(View.GONE);
+            adapter.setFood(foodList);
+        }
     }
 
     @Override
