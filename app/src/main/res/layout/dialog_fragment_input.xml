@@ -60,6 +60,14 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="16dp"
         android:gravity="end">
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:minHeight="0dp"
+            android:text="Cancel"
+            android:textColor="@color/material_blue_500" />
 
         <Button
             android:id="@+id/btn_ok"
@@ -68,15 +76,6 @@
             android:background="@android:color/transparent"
             android:minHeight="0dp"
             android:text="OK"
-            android:textColor="@color/material_blue_500" />
-
-        <Button
-            android:id="@+id/btn_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:minHeight="0dp"
-            android:text="Cancel"
             android:textColor="@color/material_blue_500" />
     </LinearLayout>
 </LinearLayout>
