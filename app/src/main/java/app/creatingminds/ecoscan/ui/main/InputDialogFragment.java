@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -63,12 +63,7 @@ public class InputDialogFragment extends DialogFragment implements View.OnClickL
         btnOK.setOnClickListener(this);
         btnCancel.setOnClickListener(this);
 
-        getDialog().setTitle("Input food");
-
-        // Show soft keyboard automatically and request focus to field
-        edtFoodName.requestFocus();
-        getDialog().getWindow().setSoftInputMode(
-                WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
     }
 
     @Override
