@@ -43,6 +43,7 @@ public final class FormatUtils {
      * @return
      */
     public static String stringify(String input) {
+        input = input.toLowerCase();
         return input.replace(" ", "_");
     }
 
