@@ -10,7 +10,7 @@ import app.creatingminds.ecoscan.data.model.Food;
  * Created by tom on 9/14/18.
  */
 
-@Database(entities = {Food.class}, version = 1)
+@Database(entities = {Food.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract FoodDao foodDao();
 }
