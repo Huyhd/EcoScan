@@ -20,6 +20,7 @@ import java.util.Random;
 
 import app.creatingminds.ecoscan.R;
 import app.creatingminds.ecoscan.data.model.Food;
+import app.creatingminds.ecoscan.utils.DateUtils;
 import app.creatingminds.ecoscan.utils.FormatUtils;
 import app.creatingminds.ecoscan.utils.UiUtils;
 
@@ -104,20 +105,22 @@ public class TodayListAdapter extends BaseAdapter {
 
     // TODO: Support set quantity or move the setter outside
     public void setFood(List<Food> foodList) {
+        long currentTimestamp = System.currentTimeMillis();
         Random random = new Random();
         listViewItemList = new ArrayList<>();
         for (int i = 0; i < foodList.size(); i++) {
             Food food = foodList.get(i);
             listViewItemList.add(new TodayFoodInfoItem(UiUtils.getFoodIcon(food.getName()), food.getName(),
-                    FormatUtils.formatDate(food.getExpireTimestamp()), random.nextInt(3) + 1));
+                    DateUtils.getDayDiff(currentTimestamp, food.getExpireTimestamp()), random.nextInt(3) + 1));
         }
 
         notifyDataSetChanged();
     }
 
     public void updateFood(int i, Food food, @DrawableRes int icon, int quantity) {
+        long currentTimestamp = System.currentTimeMillis();
         listViewItemList.set(i, new TodayFoodInfoItem(icon, food.getName(),
-                FormatUtils.formatDate(food.getExpireTimestamp()), quantity));
+                DateUtils.getDayDiff(currentTimestamp, food.getExpireTimestamp()), quantity));
         notifyDataSetChanged();
     }
 

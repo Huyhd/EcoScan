@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
  */
 public final class DateUtils {
     public static String getDayDiff(long timestampFrom, long timestampTo) {
-        long diff = timestampFrom - timestampTo;
+        long diff = timestampTo - timestampFrom;
 
         return String.valueOf(TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
     }
