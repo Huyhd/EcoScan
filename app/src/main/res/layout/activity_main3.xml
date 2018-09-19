@@ -31,26 +31,28 @@
             android:layout_height="200dp">
 
             <TextView
-                android:id="@+id/lbl_feed"
+                android:id="@+id/lbl_check_food"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="80dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="24dp"
+                android:layout_marginBottom="16dp"
+                android:text="Check your Food!"
+                android:textColor="#008"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lbl_feed"
+                android:layout_above="@id/lbl_check_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
                 android:layout_marginRight="24dp"
                 android:text="Feed"
                 android:textColor="@color/material_green_500"
                 android:textSize="60sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/lbl_feed"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="24dp"
-                android:text="Check your Food!"
-                android:textColor="#008"
-                android:textSize="24sp"
                 android:textStyle="bold" />
         </RelativeLayout>
 
