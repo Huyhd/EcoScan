@@ -16,17 +16,17 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import app.creatingminds.ecoscan.R;
 import app.creatingminds.ecoscan.data.model.Food;
-import app.creatingminds.ecoscan.ui.main.FoodInfoItem;
 import app.creatingminds.ecoscan.utils.FormatUtils;
 import app.creatingminds.ecoscan.utils.UiUtils;
 
 // TODO: Improve performance, add ViewHolder pattern
 public class TodayListAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
-    private ArrayList<FoodInfoItem> listViewItemList = new ArrayList<FoodInfoItem>();
+    private ArrayList<TodayFoodInfoItem> listViewItemList = new ArrayList<TodayFoodInfoItem>();
 
     // ListViewAdapter의 생성자
     public TodayListAdapter() {
@@ -54,14 +54,16 @@ public class TodayListAdapter extends BaseAdapter {
         ImageView ivFoodImg = convertView.findViewById(R.id.iv_food_img);
         TextView tvFoodName = convertView.findViewById(R.id.tv_food_name);
         TextView tvExpireDate = convertView.findViewById(R.id.tv_expire_date);
+        TextView tvQuantity = convertView.findViewById(R.id.tv_quantity);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
-        FoodInfoItem foodInfoItem = listViewItemList.get(position);
+        TodayFoodInfoItem foodInfoItem = listViewItemList.get(position);
 
         // 아이템 내 각 위젯에 데이터 반영
         ivFoodImg.setImageDrawable(ContextCompat.getDrawable(context, foodInfoItem.getIcon()));
         tvFoodName.setText(FormatUtils.capitalizeWords(foodInfoItem.getTitle()));
         tvExpireDate.setText(String.format("%s days left", foodInfoItem.getExpireDate()));
+        tvExpireDate.setText(String.valueOf(foodInfoItem.getQuantity()));
 
         return convertView;
     }
@@ -79,33 +81,43 @@ public class TodayListAdapter extends BaseAdapter {
     }
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    public void addItem(@DrawableRes int icon, String title, String desc) {
-        FoodInfoItem item = new FoodInfoItem(icon, title, desc);
+    public void addItem(@DrawableRes int icon, String title, String desc, int quantity) {
+        TodayFoodInfoItem item = new TodayFoodInfoItem(icon, title, desc, quantity);
         addItem(item);
     }
 
-    public void addItem(FoodInfoItem infoItem) {
+    public void addItem(TodayFoodInfoItem infoItem) {
         listViewItemList.add(infoItem);
         notifyDataSetChanged();
     }
 
-    public void addItem(Food food) {
-        listViewItemList.add(new FoodInfoItem(UiUtils.getFoodIcon(food.getName()), food.getName(), FormatUtils.formatDate(food.getExpireTimestamp())));
+    public void addItem(Food food, @DrawableRes int icon, int quantity) {
+        listViewItemList.add(new TodayFoodInfoItem(icon, food.getName(),
+                FormatUtils.formatDate(food.getExpireTimestamp()), quantity));
         notifyDataSetChanged();
     }
 
+    public void setTodayFood(ArrayList<TodayFoodInfoItem> foodInfoItemList) {
+        listViewItemList = foodInfoItemList;
+        notifyDataSetChanged();
+    }
+
+    // TODO: Support set quantity or move the setter outside
     public void setFood(List<Food> foodList) {
+        Random random = new Random();
         listViewItemList = new ArrayList<>();
         for (int i = 0; i < foodList.size(); i++) {
             Food food = foodList.get(i);
-            listViewItemList.add(new FoodInfoItem(UiUtils.getFoodIcon(food.getName()), food.getName(), FormatUtils.formatDate(food.getExpireTimestamp())));
+            listViewItemList.add(new TodayFoodInfoItem(UiUtils.getFoodIcon(food.getName()), food.getName(),
+                    FormatUtils.formatDate(food.getExpireTimestamp()), random.nextInt(3) + 1));
         }
 
         notifyDataSetChanged();
     }
 
-    public void updateFood(int i, Food food) {
-        listViewItemList.set(i, new FoodInfoItem(UiUtils.getFoodIcon(food.getName()), food.getName(), FormatUtils.formatDate(food.getExpireTimestamp())));
+    public void updateFood(int i, Food food, @DrawableRes int icon, int quantity) {
+        listViewItemList.set(i, new TodayFoodInfoItem(icon, food.getName(),
+                FormatUtils.formatDate(food.getExpireTimestamp()), quantity));
         notifyDataSetChanged();
     }
 

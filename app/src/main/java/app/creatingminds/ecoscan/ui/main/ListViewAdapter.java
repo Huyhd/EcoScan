@@ -88,8 +88,8 @@ public class ListViewAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void addItem(Food food) {
-        listViewItemList.add(new FoodInfoItem(UiUtils.getFoodIcon(food.getName()), food.getName(), FormatUtils.formatDate(food.getExpireTimestamp())));
+    public void addItem(Food food, @DrawableRes int icon) {
+        listViewItemList.add(new FoodInfoItem(icon, food.getName(), FormatUtils.formatDate(food.getExpireTimestamp())));
         notifyDataSetChanged();
     }
 
@@ -104,7 +104,9 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     public void updateFood(int i, Food food) {
-        listViewItemList.set(i, new FoodInfoItem(UiUtils.getFoodIcon(food.getName()), food.getName(), FormatUtils.formatDate(food.getExpireTimestamp())));
+        FoodInfoItem item = listViewItemList.get(i);
+        item.setTitle(food.getName());
+        item.setExpireDate(FormatUtils.formatDate(food.getExpireTimestamp()));
         notifyDataSetChanged();
     }
 

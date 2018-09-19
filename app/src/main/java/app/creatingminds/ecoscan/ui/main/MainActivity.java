@@ -42,6 +42,7 @@ import app.creatingminds.ecoscan.data.DataManager;
 import app.creatingminds.ecoscan.data.model.Food;
 import app.creatingminds.ecoscan.ui.settings.SettingActivity;
 import app.creatingminds.ecoscan.ui.today.TodayActivity;
+import app.creatingminds.ecoscan.utils.UiUtils;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -285,7 +286,7 @@ public class MainActivity extends AppCompatActivity
 
                 final Food food = new Food(foodName, timestamp);
                 foodList.add(food);
-                adapter.addItem(food);
+                adapter.addItem(food, UiUtils.getFoodIcon(food.getName()));
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
