@@ -278,7 +278,7 @@ public class MainActivity extends AppCompatActivity
 
                 builder.create().show();
 
-                return false; // Dispatch event to next layer
+                return true;
             }
         });
 
