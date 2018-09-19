@@ -26,7 +26,6 @@ public class TodayActivity extends AppCompatActivity implements View.OnClickList
     private LinearLayout layoutPlaceHolder;
     private TextView tvToday;
     private ImageButton btnNavBack;
-    private FloatingActionButton btnRefresh;
 
     private DataManager dataManager;
     private TodayListAdapter adapter;
@@ -60,7 +59,7 @@ public class TodayActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void setupEventListeners() {
-        btnRefresh.setOnClickListener(this);
+        fabRefresh.setOnClickListener(this);
         btnNavBack.setOnClickListener(this);
     }
 
