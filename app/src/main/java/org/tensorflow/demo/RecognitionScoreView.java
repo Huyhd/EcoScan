@@ -27,46 +27,46 @@ import org.tensorflow.demo.Classifier.Recognition;
 import java.util.List;
 
 public class RecognitionScoreView extends View implements ResultsView {
-  private static final float TEXT_SIZE_DIP = 24;
-  private List<Recognition> results;
-  private final float textSizePx;
-  private final Paint fgPaint;
-  private final Paint bgPaint;
+    private static final float TEXT_SIZE_DIP = 24;
+    private final float textSizePx;
+    private final Paint fgPaint;
+    private final Paint bgPaint;
+    private List<Recognition> results;
 
-  public RecognitionScoreView(final Context context, final AttributeSet set) {
-    super(context, set);
+    public RecognitionScoreView(final Context context, final AttributeSet set) {
+        super(context, set);
 
-    textSizePx =
-        TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP, getResources().getDisplayMetrics());
-    fgPaint = new Paint();
-    fgPaint.setTextSize(textSizePx);
-    fgPaint.setColor(0xccffffff);
-    bgPaint = new Paint();
-    bgPaint.setColor(0xcc57D900);
-  }
-
-  @Override
-  public void setResults(final List<Recognition> results) {
-    this.results = results;
-    postInvalidate();
-  }
-
-  @Override
-  public void onDraw(final Canvas canvas) {
-    final int x = 10;
-    int y = (int) (fgPaint.getTextSize() * 1.5f);
-
-    canvas.drawPaint(bgPaint);
-    if (results != null) {
-      int i=0;
-      for (final Recognition recog : results) {
-        i++;
-        canvas.drawText(recog.getTitle(), x+25, y, fgPaint);
-        if(i>0)
-          break;
-        y += fgPaint.getTextSize() * 1.5f;
-      }
+        textSizePx =
+                TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP, getResources().getDisplayMetrics());
+        fgPaint = new Paint();
+        fgPaint.setTextSize(textSizePx);
+        fgPaint.setColor(0xccffffff);
+        bgPaint = new Paint();
+        bgPaint.setColor(0xcc57D900);
     }
-  }
+
+    @Override
+    public void setResults(final List<Recognition> results) {
+        this.results = results;
+        postInvalidate();
+    }
+
+    @Override
+    public void onDraw(final Canvas canvas) {
+        final int x = 10;
+        int y = (int) (fgPaint.getTextSize() * 1.5f);
+
+        canvas.drawPaint(bgPaint);
+        if (results != null) {
+            int i = 0;
+            for (final Recognition recog : results) {
+                i++;
+                canvas.drawText(recog.getTitle(), x + 25, y, fgPaint);
+                if (i > 0)
+                    break;
+                y += fgPaint.getTextSize() * 1.5f;
+            }
+        }
+    }
 }

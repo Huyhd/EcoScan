@@ -73,13 +73,13 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
     private static final boolean MAINTAIN_ASPECT = true;
     private static final Size DESIRED_PREVIEW_SIZE = new Size(640, 480);
     private static final float TEXT_SIZE_DIP = 10;
+    // Data
+    ArrayList<FoodItem> foodList = new ArrayList<>();
     private ResultsView resultsView;
     private Bitmap rgbFrameBitmap = null;
     private Bitmap croppedBitmap = null;
     private Bitmap cropCopyBitmap = null;
     private long lastProcessingTimeMs;
-    // Data
-    ArrayList<FoodItem> foodList = new ArrayList<>();
     private Integer sensorOrientation;
     private Classifier classifier;
     private Matrix frameToCropTransform;

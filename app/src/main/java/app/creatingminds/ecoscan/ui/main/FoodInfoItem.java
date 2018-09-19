@@ -23,16 +23,16 @@ public class FoodInfoItem {
         return this.iconDrawable;
     }
 
+    public void setIcon(@DrawableRes int icon) {
+        iconDrawable = icon;
+    }
+
     public String getTitle() {
         return this.title;
     }
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public void setIcon(@DrawableRes int icon) {
-        iconDrawable = icon;
     }
 
     public String getExpireDate() {
