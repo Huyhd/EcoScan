@@ -19,6 +19,13 @@
         android:layout_width="match_parent"
         android:layout_height="200dp">
 
+        <ImageButton
+            android:id="@+id/btn_nav_back"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_keyboard_arrow_left_gray" />
+
         <TextView
             android:id="@+id/lbl_food_plan"
             android:layout_width="wrap_content"
@@ -90,7 +97,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:onClick="onRandomBtnClicked"
         android:src="@drawable/ic_refresh_white"
         app:backgroundTint="@color/material_green_500" />
 
