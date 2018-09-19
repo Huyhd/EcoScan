@@ -1,6 +1,5 @@
 package app.creatingminds.ecoscan.ui.edititem;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,7 +12,6 @@ import java.util.List;
 import app.creatingminds.ecoscan.EcoApp;
 import app.creatingminds.ecoscan.R;
 import app.creatingminds.ecoscan.data.model.Food;
-import app.creatingminds.ecoscan.ui.main.MainActivity;
 import app.creatingminds.ecoscan.utils.FormatUtils;
 
 /**
@@ -60,8 +58,6 @@ public class EditItemActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Intent intent = new Intent(EditItemActivity.this, MainActivity.class);
-                        startActivity(intent);
                         finish();
                     }
                 });

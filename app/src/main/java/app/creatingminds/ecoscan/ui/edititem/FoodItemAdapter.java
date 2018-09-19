@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.creatingminds.ecoscan.R;
+import app.creatingminds.ecoscan.utils.FormatUtils;
 
 /**
  * Created by Kimsoomin on 2017-10-29.
@@ -52,7 +53,7 @@ public class FoodItemAdapter extends BaseAdapter {
         FoodItem listViewItemnew = listViewItemListnew.get(position);
 
         // 아이템 내 각 위젯에 데이터 반영
-        NameView.setText(listViewItemnew.getTitle());
+        NameView.setText(FormatUtils.capitalizeWords(listViewItemnew.getTitle()));
         InfoVIew.setText(listViewItemnew.getTime());
 
         return convertView;
