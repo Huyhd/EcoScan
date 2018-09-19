@@ -63,7 +63,7 @@ public class TodayListAdapter extends BaseAdapter {
         ivFoodImg.setImageDrawable(ContextCompat.getDrawable(context, foodInfoItem.getIcon()));
         tvFoodName.setText(FormatUtils.capitalizeWords(foodInfoItem.getTitle()));
         tvExpireDate.setText(String.format("%s days left", foodInfoItem.getExpireDate()));
-        tvExpireDate.setText(String.valueOf(foodInfoItem.getQuantity()));
+        tvQuantity.setText(String.valueOf(foodInfoItem.getQuantity()));
 
         return convertView;
     }
